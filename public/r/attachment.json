@@ -4,7 +4,8 @@
   "title": "attachment",
   "description": "attachment (identity-styled).",
   "dependencies": [
-    "radix-ui"
+    "radix-ui",
+    "class-variance-authority"
   ],
   "registryDependencies": [
     "https://ui.lscaturchio.xyz/r/button.json"

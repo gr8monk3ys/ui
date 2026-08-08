@@ -4,7 +4,8 @@
   "title": "resizable",
   "description": "resizable (identity-styled).",
   "dependencies": [
-    "react-resizable-panels@^4"
+    "react-resizable-panels@^4",
+    "lucide-react"
   ],
   "files": [
     {

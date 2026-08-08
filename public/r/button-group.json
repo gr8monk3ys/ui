@@ -3,6 +3,10 @@
   "name": "button-group",
   "title": "button-group",
   "description": "button-group (identity-styled).",
+  "dependencies": [
+    "class-variance-authority",
+    "radix-ui"
+  ],
   "registryDependencies": [
     "https://ui.lscaturchio.xyz/r/button.json",
     "https://ui.lscaturchio.xyz/r/separator.json"

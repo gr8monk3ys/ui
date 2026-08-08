@@ -4,7 +4,8 @@
   "title": "radio-group",
   "description": "radio-group (identity-styled).",
   "dependencies": [
-    "radix-ui"
+    "radix-ui",
+    "lucide-react"
   ],
   "files": [
     {

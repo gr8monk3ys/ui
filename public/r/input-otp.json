@@ -4,7 +4,8 @@
   "title": "input-otp",
   "description": "input-otp (identity-styled).",
   "dependencies": [
-    "input-otp"
+    "input-otp",
+    "lucide-react"
   ],
   "files": [
     {

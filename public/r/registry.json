@@ -229,6 +229,9 @@
       "type": "registry:ui",
       "title": "alert",
       "description": "alert (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "files": [
         {
           "path": "components/ui/alert.tsx",
@@ -275,7 +278,8 @@
       "title": "attachment",
       "description": "attachment (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json"
@@ -293,7 +297,8 @@
       "title": "breadcrumb",
       "description": "breadcrumb (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -308,7 +313,8 @@
       "title": "bubble",
       "description": "bubble (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority"
       ],
       "files": [
         {
@@ -322,6 +328,10 @@
       "type": "registry:ui",
       "title": "button-group",
       "description": "button-group (identity-styled).",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json",
         "https://ui.lscaturchio.xyz/r/separator.json"
@@ -340,7 +350,8 @@
       "description": "calendar (identity-styled).",
       "dependencies": [
         "react-day-picker@latest",
-        "date-fns"
+        "date-fns",
+        "lucide-react"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json"
@@ -358,7 +369,8 @@
       "title": "carousel",
       "description": "carousel (identity-styled).",
       "dependencies": [
-        "embla-carousel-react"
+        "embla-carousel-react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json"
@@ -395,7 +407,8 @@
       "title": "checkbox",
       "description": "checkbox (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -425,7 +438,8 @@
       "title": "combobox",
       "description": "combobox (identity-styled).",
       "dependencies": [
-        "@base-ui/react"
+        "@base-ui/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json",
@@ -444,7 +458,8 @@
       "title": "command",
       "description": "command (identity-styled).",
       "dependencies": [
-        "cmdk"
+        "cmdk",
+        "lucide-react"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/dialog.json"
@@ -462,7 +477,8 @@
       "title": "context-menu",
       "description": "context-menu (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -477,7 +493,8 @@
       "title": "dialog",
       "description": "dialog (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json"
@@ -494,6 +511,9 @@
       "type": "registry:ui",
       "title": "direction",
       "description": "direction (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
       "files": [
         {
           "path": "components/ui/direction.tsx",
@@ -522,7 +542,8 @@
       "title": "dropdown-menu",
       "description": "dropdown-menu (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -536,6 +557,9 @@
       "type": "registry:ui",
       "title": "empty",
       "description": "empty (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "files": [
         {
           "path": "components/ui/empty.tsx",
@@ -548,6 +572,9 @@
       "type": "registry:ui",
       "title": "field",
       "description": "field (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/label.json",
         "https://ui.lscaturchio.xyz/r/separator.json"
@@ -613,6 +640,9 @@
       "type": "registry:ui",
       "title": "input-group",
       "description": "input-group (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json",
         "https://ui.lscaturchio.xyz/r/input.json",
@@ -631,7 +661,8 @@
       "title": "input-otp",
       "description": "input-otp (identity-styled).",
       "dependencies": [
-        "input-otp"
+        "input-otp",
+        "lucide-react"
       ],
       "files": [
         {
@@ -646,7 +677,8 @@
       "title": "item",
       "description": "item (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/separator.json"
@@ -691,7 +723,8 @@
       "title": "marker",
       "description": "marker (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority"
       ],
       "files": [
         {
@@ -706,7 +739,8 @@
       "title": "menubar",
       "description": "menubar (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -733,7 +767,8 @@
       "title": "message-scroller",
       "description": "message-scroller (identity-styled).",
       "dependencies": [
-        "@shadcn/react"
+        "@shadcn/react",
+        "lucide-react"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json"
@@ -750,6 +785,9 @@
       "type": "registry:ui",
       "title": "native-select",
       "description": "native-select (identity-styled).",
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "components/ui/native-select.tsx",
@@ -763,7 +801,9 @@
       "title": "navigation-menu",
       "description": "navigation-menu (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority",
+        "lucide-react"
       ],
       "files": [
         {
@@ -777,6 +817,9 @@
       "type": "registry:ui",
       "title": "pagination",
       "description": "pagination (identity-styled).",
+      "dependencies": [
+        "lucide-react"
+      ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/button.json"
       ],
@@ -823,7 +866,8 @@
       "title": "radio-group",
       "description": "radio-group (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -838,7 +882,8 @@
       "title": "resizable",
       "description": "resizable (identity-styled).",
       "dependencies": [
-        "react-resizable-panels@^4"
+        "react-resizable-panels@^4",
+        "lucide-react"
       ],
       "files": [
         {
@@ -868,7 +913,8 @@
       "title": "select",
       "description": "select (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -898,7 +944,8 @@
       "title": "sheet",
       "description": "sheet (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "lucide-react"
       ],
       "files": [
         {
@@ -955,7 +1002,8 @@
       "description": "sonner (identity-styled).",
       "dependencies": [
         "sonner",
-        "next-themes"
+        "next-themes",
+        "lucide-react"
       ],
       "files": [
         {
@@ -970,7 +1018,8 @@
       "title": "spinner",
       "description": "spinner (identity-styled).",
       "dependencies": [
-        "class-variance-authority"
+        "class-variance-authority",
+        "lucide-react"
       ],
       "files": [
         {
@@ -1012,7 +1061,8 @@
       "title": "tabs",
       "description": "tabs (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority"
       ],
       "files": [
         {
@@ -1039,7 +1089,8 @@
       "title": "toggle",
       "description": "toggle (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority"
       ],
       "files": [
         {
@@ -1054,7 +1105,8 @@
       "title": "toggle-group",
       "description": "toggle-group (identity-styled).",
       "dependencies": [
-        "radix-ui"
+        "radix-ui",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "https://ui.lscaturchio.xyz/r/toggle.json"

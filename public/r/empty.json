@@ -3,6 +3,9 @@
   "name": "empty",
   "title": "empty",
   "description": "empty (identity-styled).",
+  "dependencies": [
+    "class-variance-authority"
+  ],
   "files": [
     {
       "path": "components/ui/empty.tsx",

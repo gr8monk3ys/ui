@@ -3,6 +3,9 @@
   "name": "pagination",
   "title": "pagination",
   "description": "pagination (identity-styled).",
+  "dependencies": [
+    "lucide-react"
+  ],
   "registryDependencies": [
     "https://ui.lscaturchio.xyz/r/button.json"
   ],

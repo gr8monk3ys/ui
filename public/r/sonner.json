@@ -5,7 +5,8 @@
   "description": "sonner (identity-styled).",
   "dependencies": [
     "sonner",
-    "next-themes"
+    "next-themes",
+    "lucide-react"
   ],
   "files": [
     {

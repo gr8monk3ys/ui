@@ -4,7 +4,8 @@
   "title": "carousel",
   "description": "carousel (identity-styled).",
   "dependencies": [
-    "embla-carousel-react"
+    "embla-carousel-react",
+    "lucide-react"
   ],
   "registryDependencies": [
     "https://ui.lscaturchio.xyz/r/button.json"

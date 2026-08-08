@@ -4,7 +4,8 @@
   "title": "bubble",
   "description": "bubble (identity-styled).",
   "dependencies": [
-    "radix-ui"
+    "radix-ui",
+    "class-variance-authority"
   ],
   "files": [
     {

@@ -4,7 +4,8 @@
   "title": "message-scroller",
   "description": "message-scroller (identity-styled).",
   "dependencies": [
-    "@shadcn/react"
+    "@shadcn/react",
+    "lucide-react"
   ],
   "registryDependencies": [
     "https://ui.lscaturchio.xyz/r/button.json"

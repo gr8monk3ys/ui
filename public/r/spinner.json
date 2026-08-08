@@ -4,7 +4,8 @@
   "title": "spinner",
   "description": "spinner (identity-styled).",
   "dependencies": [
-    "class-variance-authority"
+    "class-variance-authority",
+    "lucide-react"
   ],
   "files": [
     {

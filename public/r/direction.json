@@ -3,6 +3,9 @@
   "name": "direction",
   "title": "direction",
   "description": "direction (identity-styled).",
+  "dependencies": [
+    "radix-ui"
+  ],
   "files": [
     {
       "path": "components/ui/direction.tsx",

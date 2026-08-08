@@ -8,7 +8,7 @@
  * - Writes registry-manifest.json (exact item set) and prints npm deps.
  * Idempotent: re-running overwrites vendored files and regenerated entries.
  */
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
 const ROOT = join(import.meta.dir, "..");
@@ -84,20 +84,57 @@ const npmDeps = new Set<string>();
 const cssVarsCollected: Record<string, Record<string, Record<string, string>>> = {};
 const generatedItems: any[] = [];
 
+/** Packages consumers always have; never auto-added to item dependencies. */
+const AMBIENT_PACKAGES = new Set(["react", "react-dom", "next"]);
+
+/** Bare package imports in a source file (e.g. "lucide-react", "@base-ui/react"). */
+function packageImports(src: string): string[] {
+  const out = new Set<string>();
+  for (const m of src.matchAll(/from\s+["']([^"'.@/][^"']*|@[\w-]+\/[\w-]+)["']/g)) {
+    const spec = m[1];
+    const root = spec.startsWith("@") ? spec.split("/").slice(0, 2).join("/") : spec.split("/")[0];
+    if (!AMBIENT_PACKAGES.has(root)) out.add(root);
+  }
+  return [...out];
+}
+
 for (const [name, item] of [...fetched.entries()].sort()) {
   const files: any[] = [];
+  const usedPackages = new Set<string>();
   for (const f of item.files ?? []) {
     const target = targetFor(f.path, f.type);
     const abs = join(ROOT, target);
     mkdirSync(dirname(abs), { recursive: true });
-    writeFileSync(abs, rewriteImports(f.content));
+    // Local files are the source of truth once vendored (they carry the
+    // identity restyle). Never overwrite unless REFRESH_FILES=1.
+    let content: string;
+    if (existsSync(abs) && process.env.REFRESH_FILES !== "1") {
+      content = readFileSync(abs, "utf8");
+    } else {
+      content = rewriteImports(f.content);
+      writeFileSync(abs, content);
+    }
+    for (const p of packageImports(content)) usedPackages.add(p);
     const entry: any = { path: target, type: f.type };
     if (f.type === "registry:hook" || f.type === "registry:lib") {
       entry.target = target; // explicit target for non-ui files
     }
     files.push(entry);
   }
-  for (const d of item.dependencies ?? []) npmDeps.add(d);
+  // Union declared deps with packages the sources actually import — upstream
+  // items sometimes omit real dependencies (e.g. combobox uses lucide-react
+  // without declaring it), which breaks consumer installs.
+  const declaredRoots = new Set(
+    (item.dependencies ?? []).map((d: string) =>
+      d.startsWith("@") ? d.split("/").slice(0, 2).join("/") : d.split("@")[0],
+    ),
+  );
+  const itemDeps: string[] = [...(item.dependencies ?? [])];
+  for (const p of usedPackages) {
+    if (!declaredRoots.has(p)) itemDeps.push(p);
+  }
+  item.dependencies = itemDeps;
+  for (const d of itemDeps) npmDeps.add(d);
   if (item.cssVars && Object.keys(item.cssVars).length) cssVarsCollected[name] = item.cssVars;
 
   const regDeps: string[] = [];
