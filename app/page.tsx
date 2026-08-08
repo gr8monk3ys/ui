@@ -1,10 +1,10 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/registry/ui/accordion";
-import { Avatar, AvatarFallback } from "@/registry/ui/avatar";
-import { Badge } from "@/registry/ui/badge";
-import { Button } from "@/registry/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/registry/ui/card";
-import { Section, SectionHeader } from "@/registry/ui/section";
-import { ThemeToggle } from "@/registry/ui/theme-toggle";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Section, SectionHeader } from "@/components/ui/section";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const COLOR_TOKENS = [
   "background", "foreground", "card", "muted", "accent",

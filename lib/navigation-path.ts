@@ -1,1 +1,1 @@
-export * from "@/registry/patterns/navigation-path";
+export * from "@/components/patterns/navigation-path";

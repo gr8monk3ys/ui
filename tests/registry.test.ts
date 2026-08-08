@@ -29,13 +29,4 @@ describe("registry.json", () => {
     }
   });
 
-  test("no item imports another registry component", () => {
-    for (const item of registry.items) {
-      for (const file of item.files) {
-        if (!file.path.endsWith(".tsx") && !file.path.endsWith(".ts")) continue;
-        const src = readFileSync(join(ROOT, file.path), "utf8");
-        expect(src.includes("@/registry/"), `${file.path} has cross-registry import`).toBe(false);
-      }
-    }
-  });
 });

@@ -20,7 +20,7 @@
       "description": "Editorial button; hairline border, green hover tint, cta-primary variant.",
       "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/button.tsx", "type": "registry:ui" }]
+      "files": [{ "path": "components/ui/button.tsx", "type": "registry:ui" }]
     },
     {
       "name": "card",
@@ -28,7 +28,7 @@
       "title": "Card",
       "description": "Flat editorial card with hover lift.",
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/card.tsx", "type": "registry:ui" }]
+      "files": [{ "path": "components/ui/card.tsx", "type": "registry:ui" }]
     },
     {
       "name": "badge",
@@ -37,7 +37,7 @@
       "description": "Flat badges on the identity palette.",
       "dependencies": ["class-variance-authority"],
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/badge.tsx", "type": "registry:ui" }]
+      "files": [{ "path": "components/ui/badge.tsx", "type": "registry:ui" }]
     },
     {
       "name": "accordion",
@@ -46,7 +46,7 @@
       "description": "Radix accordion with hairline dividers.",
       "dependencies": ["@radix-ui/react-accordion", "lucide-react"],
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/accordion.tsx", "type": "registry:ui" }]
+      "files": [{ "path": "components/ui/accordion.tsx", "type": "registry:ui" }]
     },
     {
       "name": "avatar",
@@ -55,7 +55,7 @@
       "description": "Radix avatar.",
       "dependencies": ["@radix-ui/react-avatar"],
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/avatar.tsx", "type": "registry:ui" }]
+      "files": [{ "path": "components/ui/avatar.tsx", "type": "registry:ui" }]
     },
     {
       "name": "section",
@@ -63,7 +63,7 @@
       "title": "Section + SectionHeader",
       "description": "Layout section with reveal and hairline dividers; museum wall-label header (index, eyebrow, rule).",
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/section.tsx", "type": "registry:ui" }]
+      "files": [{ "path": "components/ui/section.tsx", "type": "registry:ui" }]
     },
     {
       "name": "theme-toggle",
@@ -71,7 +71,7 @@
       "title": "Theme Toggle",
       "description": "Light/dark toggle on next-themes.",
       "dependencies": ["next-themes", "lucide-react"],
-      "files": [{ "path": "registry/ui/theme-toggle.tsx", "type": "registry:ui" }]
+      "files": [{ "path": "components/ui/theme-toggle.tsx", "type": "registry:ui" }]
     },
     {
       "name": "reveal",
@@ -79,7 +79,7 @@
       "title": "Reveal",
       "description": "IntersectionObserver scroll reveal; reduced-motion safe, works without JS.",
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/patterns/reveal.tsx", "type": "registry:component" }]
+      "files": [{ "path": "components/patterns/reveal.tsx", "type": "registry:component" }]
     },
     {
       "name": "active-nav-link",
@@ -88,8 +88,8 @@
       "description": "Nav link with slide-in underline; sticks when the route is active.",
       "registryDependencies": ["utils"],
       "files": [
-        { "path": "registry/patterns/active-nav-link.tsx", "type": "registry:component" },
-        { "path": "registry/patterns/navigation-path.ts", "type": "registry:lib", "target": "lib/navigation-path.ts" }
+        { "path": "components/patterns/active-nav-link.tsx", "type": "registry:component" },
+        { "path": "components/patterns/navigation-path.ts", "type": "registry:lib", "target": "lib/navigation-path.ts" }
       ]
     },
     {
@@ -98,7 +98,7 @@
       "title": "BreadcrumbNav",
       "description": "Path-derived breadcrumb with mono styling.",
       "dependencies": ["lucide-react"],
-      "files": [{ "path": "registry/patterns/breadcrumb-nav.tsx", "type": "registry:component" }]
+      "files": [{ "path": "components/patterns/breadcrumb-nav.tsx", "type": "registry:component" }]
     },
     {
       "name": "scroll-to-top",
@@ -106,7 +106,7 @@
       "title": "ScrollToTop",
       "description": "Floating back-to-top button on the surface-button style.",
       "dependencies": ["lucide-react"],
-      "files": [{ "path": "registry/patterns/scroll-to-top.tsx", "type": "registry:component" }]
+      "files": [{ "path": "components/patterns/scroll-to-top.tsx", "type": "registry:component" }]
     },
     {
       "name": "skeleton",
@@ -114,7 +114,7 @@
       "title": "Skeleton",
       "description": "Loading block with the identity shimmer.",
       "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/patterns/skeleton.tsx", "type": "registry:component" }]
+      "files": [{ "path": "components/patterns/skeleton.tsx", "type": "registry:component" }]
     }
   ]
 }
