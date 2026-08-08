@@ -30,7 +30,8 @@ export default function Home() {
           patterns. Pull any piece with <code className="font-mono text-sm">npx shadcn add</code>.
         </p>
         <div className="mt-8 flex items-center gap-4">
-          <a className="cta-primary rounded-xl px-6 py-3" href="/patterns">Patterns</a>
+          <a className="cta-primary rounded-xl px-6 py-3" href="/components">Components</a>
+          <a className="cta-secondary rounded-xl px-6 py-3" href="/patterns">Patterns</a>
           <a className="cta-secondary rounded-xl px-6 py-3" href="https://github.com/gr8monk3ys/ui">GitHub</a>
           <ThemeToggle />
         </div>
