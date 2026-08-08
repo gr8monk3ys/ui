@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@import './identity.css';
+
+:root {
+  --primary: 262 60% 35%;
+  --radius: 0.5rem;
+}
