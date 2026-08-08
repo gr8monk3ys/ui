@@ -24,7 +24,9 @@ const OURS = new Set([
 
 /** Extra registryDependencies upstream relies on implicitly (filled in as the
  * dependency-consistency test finds gaps). item name -> dep item names. */
-const EXTRA_DEPS: Record<string, string[]> = {};
+const EXTRA_DEPS: Record<string, string[]> = {
+  dialog: ["button"],
+};
 
 /** The full upstream ui catalog (from r/index.json, 2026-08-08). */
 const CATALOG = [

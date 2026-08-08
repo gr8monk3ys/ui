@@ -6,6 +6,9 @@
   "dependencies": [
     "radix-ui"
   ],
+  "registryDependencies": [
+    "https://ui.lscaturchio.xyz/r/button.json"
+  ],
   "files": [
     {
       "path": "components/ui/dialog.tsx",
