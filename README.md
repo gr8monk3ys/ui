@@ -9,10 +9,10 @@ of my apps can adopt it.
 
 ```bash
 # the theme (tokens + fonts) — start here
-npx shadcn@latest add <REGISTRY_URL>/r/theme.json
+npx shadcn@latest add https://ui-gr8monk3ys-projects.vercel.app/r/theme.json
 
 # then any components you want
-npx shadcn@latest add <REGISTRY_URL>/r/button.json <REGISTRY_URL>/r/card.json
+npx shadcn@latest add https://ui-gr8monk3ys-projects.vercel.app/r/button.json https://ui-gr8monk3ys-projects.vercel.app/r/card.json
 ```
 
 Wire it up:
