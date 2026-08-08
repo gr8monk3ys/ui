@@ -1,0 +1,120 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "gr8monk3ys",
+  "homepage": "https://github.com/gr8monk3ys/ui",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:item",
+      "title": "Identity Theme",
+      "description": "Warm paper, forest green, gallery language: tokens, typography scale, surfaces, motion. Import after tailwindcss; override only --primary and --radius.",
+      "files": [
+        { "path": "registry/theme/identity.css", "type": "registry:file", "target": "app/identity.css" },
+        { "path": "registry/theme/fonts.ts", "type": "registry:file", "target": "lib/fonts.ts" }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Editorial button; hairline border, green hover tint, cta-primary variant.",
+      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/ui/button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Flat editorial card with hover lift.",
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/ui/card.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Flat badges on the identity palette.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/ui/badge.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Radix accordion with hairline dividers.",
+      "dependencies": ["@radix-ui/react-accordion", "lucide-react"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/ui/accordion.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Radix avatar.",
+      "dependencies": ["@radix-ui/react-avatar"],
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/ui/avatar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "section",
+      "type": "registry:ui",
+      "title": "Section + SectionHeader",
+      "description": "Layout section with reveal and hairline dividers; museum wall-label header (index, eyebrow, rule).",
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/ui/section.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "title": "Theme Toggle",
+      "description": "Light/dark toggle on next-themes.",
+      "dependencies": ["next-themes", "lucide-react"],
+      "files": [{ "path": "registry/ui/theme-toggle.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "reveal",
+      "type": "registry:component",
+      "title": "Reveal",
+      "description": "IntersectionObserver scroll reveal; reduced-motion safe, works without JS.",
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/patterns/reveal.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "active-nav-link",
+      "type": "registry:component",
+      "title": "ActiveNavLink",
+      "description": "Nav link with slide-in underline; sticks when the route is active.",
+      "registryDependencies": ["utils"],
+      "files": [
+        { "path": "registry/patterns/active-nav-link.tsx", "type": "registry:component" },
+        { "path": "registry/patterns/navigation-path.ts", "type": "registry:lib", "target": "lib/navigation-path.ts" }
+      ]
+    },
+    {
+      "name": "breadcrumb-nav",
+      "type": "registry:component",
+      "title": "BreadcrumbNav",
+      "description": "Path-derived breadcrumb with mono styling.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/patterns/breadcrumb-nav.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "scroll-to-top",
+      "type": "registry:component",
+      "title": "ScrollToTop",
+      "description": "Floating back-to-top button on the surface-button style.",
+      "dependencies": ["lucide-react"],
+      "files": [{ "path": "registry/patterns/scroll-to-top.tsx", "type": "registry:component" }]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Loading block with the identity shimmer.",
+      "registryDependencies": ["utils"],
+      "files": [{ "path": "registry/patterns/skeleton.tsx", "type": "registry:component" }]
+    }
+  ]
+}

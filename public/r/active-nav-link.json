@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "active-nav-link",
+  "title": "ActiveNavLink",
+  "description": "Nav link with slide-in underline; sticks when the route is active.",
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/patterns/active-nav-link.tsx",
+      "content": "\"use client\";\n\nimport type { ReactNode } from \"react\";\n\nimport Link from \"next/link\";\nimport { usePathname } from \"next/navigation\";\n\nimport { isPathActive } from \"@/lib/navigation-path\";\nimport { cn } from \"@/lib/utils\";\n\ninterface ActiveNavLinkProps {\n  href: string;\n  children: ReactNode;\n  className?: string;\n  activeClassName?: string;\n  inactiveClassName?: string;\n}\n\n/** Nav link with the slide-in underline; underline sticks when active. */\nexport function ActiveNavLink({\n  href,\n  children,\n  className,\n  activeClassName,\n  inactiveClassName,\n}: ActiveNavLinkProps) {\n  const pathname = usePathname();\n  const active = isPathActive(pathname, href);\n\n  return (\n    <Link\n      href={href}\n      aria-current={active ? \"page\" : undefined}\n      className={cn(\n        \"nav-underline\",\n        active && \"nav-underline-active\",\n        className,\n        active ? activeClassName : inactiveClassName,\n      )}\n    >\n      {children}\n    </Link>\n  );\n}\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/patterns/navigation-path.ts",
+      "content": "export function getHrefPath(href: string): string {\n  return href.split(\"#\")[0] || href;\n}\n\nexport function isPathActive(pathname: string, href: string): boolean {\n  const resolvedHref = getHrefPath(href);\n\n  if (resolvedHref === \"/\") {\n    return pathname === resolvedHref;\n  }\n\n  return pathname === resolvedHref || pathname.startsWith(`${resolvedHref}/`);\n}\n",
+      "type": "registry:lib",
+      "target": "lib/navigation-path.ts"
+    }
+  ],
+  "type": "registry:component"
+}
