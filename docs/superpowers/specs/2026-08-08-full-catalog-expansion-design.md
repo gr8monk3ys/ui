@@ -138,7 +138,7 @@ placeholder data).
 
 - Items with `@base-ui/react` / `@shadcn/react` runtimes are vendored as
   upstream ships them; if an item fails to compile in our stack, it blocks
-  the task until fixed (no silent exclusions — the item-count test pins 69).
+  the task until fixed (no silent exclusions — the item-count test pins 70).
 - `sonner` requires a `<Toaster>` mount; gallery mounts it on the overlays
   page; README documents the consumer requirement.
 - `sidebar` requires its provider/css-var setup; the navigation page mounts
