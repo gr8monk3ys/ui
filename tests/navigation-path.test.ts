@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { getHrefPath, isPathActive } from "../registry/patterns/navigation-path";
+import { getHrefPath, isPathActive } from "../components/patterns/navigation-path";
 
 describe("getHrefPath", () => {
   test("strips fragments", () => {

@@ -1,0 +1,203 @@
+"use client";
+
+import { useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+
+import { DemoBlock } from "@/components/gallery/demo-block";
+import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { Calendar } from "@/components/ui/calendar";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/ui/combobox";
+import {
+  Field,
+  FieldDescription,
+  FieldLabel,
+} from "@/components/ui/field";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@/components/ui/input-group";
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@/components/ui/input-otp";
+import { Label } from "@/components/ui/label";
+import { NativeSelect } from "@/components/ui/native-select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
+import { Toggle } from "@/components/ui/toggle";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+
+const FRUITS = ["Apple", "Banana", "Cherry", "Elderberry"];
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Give us at least two characters."),
+});
+
+function ContactFormDemo() {
+  const form = useForm<z.infer<typeof contactSchema>>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: "" },
+  });
+  return (
+    <Form {...form}>
+      <form className="grid max-w-sm gap-4" onSubmit={form.handleSubmit(() => undefined)}>
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Ada Lovelace" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" variant="primary" className="w-fit">Submit</Button>
+      </form>
+    </Form>
+  );
+}
+
+export function FormsDemos() {
+  const [date, setDate] = useState<Date | undefined>(undefined);
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-2">
+      <DemoBlock label="INPUT + LABEL">
+        <div className="grid max-w-sm gap-2">
+          <Label htmlFor="email-demo">Email</Label>
+          <Input id="email-demo" placeholder="you@example.com" />
+        </div>
+      </DemoBlock>
+
+      <DemoBlock label="TEXTAREA">
+        <Textarea className="max-w-sm" placeholder="A short note…" />
+      </DemoBlock>
+
+      <DemoBlock label="SELECT">
+        <Select>
+          <SelectTrigger className="w-48"><SelectValue placeholder="Pick a fruit" /></SelectTrigger>
+          <SelectContent>
+            {FRUITS.map((f) => <SelectItem key={f} value={f.toLowerCase()}>{f}</SelectItem>)}
+          </SelectContent>
+        </Select>
+      </DemoBlock>
+
+      <DemoBlock label="NATIVE-SELECT">
+        <NativeSelect className="w-48">
+          {FRUITS.map((f) => <option key={f}>{f}</option>)}
+        </NativeSelect>
+      </DemoBlock>
+
+      <DemoBlock label="COMBOBOX">
+        <Combobox items={FRUITS}>
+          <ComboboxInput placeholder="Search fruit…" className="w-56" />
+          <ComboboxContent>
+            <ComboboxEmpty>No fruit found.</ComboboxEmpty>
+            <ComboboxList>
+              {(item: string) => <ComboboxItem key={item} value={item}>{item}</ComboboxItem>}
+            </ComboboxList>
+          </ComboboxContent>
+        </Combobox>
+      </DemoBlock>
+
+      <DemoBlock label="CHECKBOX + SWITCH">
+        <div className="flex items-center gap-8">
+          <label className="flex items-center gap-2 text-sm"><Checkbox defaultChecked /> Subscribed</label>
+          <label className="flex items-center gap-2 text-sm"><Switch defaultChecked /> Dark mode</label>
+        </div>
+      </DemoBlock>
+
+      <DemoBlock label="RADIO-GROUP">
+        <RadioGroup defaultValue="essays" className="flex gap-6">
+          {["essays", "photos", "code"].map((v) => (
+            <label key={v} className="flex items-center gap-2 text-sm capitalize"><RadioGroupItem value={v} /> {v}</label>
+          ))}
+        </RadioGroup>
+      </DemoBlock>
+
+      <DemoBlock label="SLIDER">
+        <Slider defaultValue={[40]} max={100} step={1} className="max-w-sm" />
+      </DemoBlock>
+
+      <DemoBlock label="TOGGLE + TOGGLE-GROUP">
+        <div className="flex items-center gap-6">
+          <Toggle aria-label="Bold">B</Toggle>
+          <ToggleGroup type="multiple" defaultValue={["a"]}>
+            <ToggleGroupItem value="a">Left</ToggleGroupItem>
+            <ToggleGroupItem value="b">Center</ToggleGroupItem>
+            <ToggleGroupItem value="c">Right</ToggleGroupItem>
+          </ToggleGroup>
+        </div>
+      </DemoBlock>
+
+      <DemoBlock label="BUTTON-GROUP">
+        <ButtonGroup>
+          <Button variant="outline">Day</Button>
+          <Button variant="outline">Week</Button>
+          <Button variant="outline">Month</Button>
+        </ButtonGroup>
+      </DemoBlock>
+
+      <DemoBlock label="INPUT-GROUP">
+        <InputGroup className="max-w-sm">
+          <InputGroupAddon><InputGroupText>https://</InputGroupText></InputGroupAddon>
+          <InputGroupInput placeholder="lscaturchio.xyz" />
+        </InputGroup>
+      </DemoBlock>
+
+      <DemoBlock label="INPUT-OTP">
+        <InputOTP maxLength={6}>
+          <InputOTPGroup>
+            <InputOTPSlot index={0} /><InputOTPSlot index={1} /><InputOTPSlot index={2} />
+          </InputOTPGroup>
+          <InputOTPSeparator />
+          <InputOTPGroup>
+            <InputOTPSlot index={3} /><InputOTPSlot index={4} /><InputOTPSlot index={5} />
+          </InputOTPGroup>
+        </InputOTP>
+      </DemoBlock>
+
+      <DemoBlock label="FIELD">
+        <Field className="max-w-sm">
+          <FieldLabel htmlFor="handle-demo">Handle</FieldLabel>
+          <Input id="handle-demo" placeholder="@gr8monk3ys" />
+          <FieldDescription>Shown on your public profile.</FieldDescription>
+        </Field>
+      </DemoBlock>
+
+      <DemoBlock label="FORM (react-hook-form + zod)">
+        <ContactFormDemo />
+      </DemoBlock>
+
+      <DemoBlock label="CALENDAR">
+        <Calendar mode="single" selected={date} onSelect={setDate} />
+      </DemoBlock>
+    </div>
+  );
+}

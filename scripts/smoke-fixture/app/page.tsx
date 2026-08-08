@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/reveal";
+import { Reveal } from "@/components/patterns/reveal";
 
 export default function Home() {
   return (

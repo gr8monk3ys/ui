@@ -16,10 +16,20 @@ const PORT = 4873;
 
 const server = Bun.serve({
   port: PORT,
-  fetch(req) {
+  async fetch(req) {
     const path = new URL(req.url).pathname;
     const file = Bun.file(join(ROOT, "public", path));
-    return file.exists().then((ok) => (ok ? new Response(file) : new Response("nope", { status: 404 })));
+    if (!(await file.exists())) return new Response("nope", { status: 404 });
+    if (path.endsWith(".json")) {
+      // Rebase baked registryDependencies URLs onto this local server so the
+      // dependency chain resolves without the live deployment.
+      const body = (await file.text()).replaceAll(
+        "https://ui.lscaturchio.xyz/r",
+        `http://localhost:${PORT}/r`,
+      );
+      return new Response(body, { headers: { "content-type": "application/json" } });
+    }
+    return new Response(file);
   },
 });
 
@@ -32,14 +42,16 @@ try {
   await $`bun install`.cwd(work);
 
   const base = `http://localhost:${PORT}/r`;
-  await $`bunx --bun shadcn@latest add ${base}/theme.json ${base}/button.json ${base}/reveal.json --yes --overwrite`.cwd(work);
+  await $`bunx --bun shadcn@latest add ${base}/theme.json ${base}/button.json ${base}/reveal.json ${base}/combobox.json --yes --overwrite`.cwd(work);
 
   const expected = [
     "app/identity.css",
     "lib/fonts.ts",
     "lib/utils.ts",
     "components/ui/button.tsx",
-    "components/reveal.tsx",
+    "components/patterns/reveal.tsx",
+    "components/ui/combobox.tsx",
+    "components/ui/input-group.tsx",
   ];
   for (const f of expected) {
     if (!existsSync(join(work, f))) throw new Error(`expected file missing after add: ${f}`);

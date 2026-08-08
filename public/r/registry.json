@@ -9,8 +9,19 @@
       "title": "Identity Theme",
       "description": "Warm paper, forest green, gallery language: tokens, typography scale, surfaces, motion. Import after tailwindcss; override only --primary and --radius.",
       "files": [
-        { "path": "registry/theme/identity.css", "type": "registry:file", "target": "app/identity.css" },
-        { "path": "registry/theme/fonts.ts", "type": "registry:file", "target": "lib/fonts.ts" }
+        {
+          "path": "registry/theme/identity.css",
+          "type": "registry:file",
+          "target": "app/identity.css"
+        },
+        {
+          "path": "registry/theme/fonts.ts",
+          "type": "registry:file",
+          "target": "lib/fonts.ts"
+        }
+      ],
+      "dependencies": [
+        "tw-animate-css"
       ]
     },
     {
@@ -18,78 +29,154 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "Editorial button; hairline border, green hover tint, cta-primary variant.",
-      "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/button.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
       "description": "Flat editorial card with hover lift.",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/card.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "badge",
       "type": "registry:ui",
       "title": "Badge",
       "description": "Flat badges on the identity palette.",
-      "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/badge.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "accordion",
       "type": "registry:ui",
       "title": "Accordion",
       "description": "Radix accordion with hairline dividers.",
-      "dependencies": ["@radix-ui/react-accordion", "lucide-react"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/accordion.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@radix-ui/react-accordion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "avatar",
       "type": "registry:ui",
       "title": "Avatar",
       "description": "Radix avatar.",
-      "dependencies": ["@radix-ui/react-avatar"],
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/avatar.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "@radix-ui/react-avatar"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "section",
       "type": "registry:ui",
       "title": "Section + SectionHeader",
       "description": "Layout section with reveal and hairline dividers; museum wall-label header (index, eyebrow, rule).",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/ui/section.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/section.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "theme-toggle",
       "type": "registry:ui",
       "title": "Theme Toggle",
       "description": "Light/dark toggle on next-themes.",
-      "dependencies": ["next-themes", "lucide-react"],
-      "files": [{ "path": "registry/ui/theme-toggle.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "next-themes",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/theme-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "reveal",
       "type": "registry:component",
       "title": "Reveal",
       "description": "IntersectionObserver scroll reveal; reduced-motion safe, works without JS.",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/patterns/reveal.tsx", "type": "registry:component" }]
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/patterns/reveal.tsx",
+          "type": "registry:component"
+        }
+      ]
     },
     {
       "name": "active-nav-link",
       "type": "registry:component",
       "title": "ActiveNavLink",
       "description": "Nav link with slide-in underline; sticks when the route is active.",
-      "registryDependencies": ["utils"],
+      "registryDependencies": [
+        "utils"
+      ],
       "files": [
-        { "path": "registry/patterns/active-nav-link.tsx", "type": "registry:component" },
-        { "path": "registry/patterns/navigation-path.ts", "type": "registry:lib", "target": "lib/navigation-path.ts" }
+        {
+          "path": "components/patterns/active-nav-link.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "components/patterns/navigation-path.ts",
+          "type": "registry:lib",
+          "target": "lib/navigation-path.ts"
+        }
       ]
     },
     {
@@ -97,24 +184,967 @@
       "type": "registry:component",
       "title": "BreadcrumbNav",
       "description": "Path-derived breadcrumb with mono styling.",
-      "dependencies": ["lucide-react"],
-      "files": [{ "path": "registry/patterns/breadcrumb-nav.tsx", "type": "registry:component" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/patterns/breadcrumb-nav.tsx",
+          "type": "registry:component"
+        }
+      ]
     },
     {
       "name": "scroll-to-top",
       "type": "registry:component",
       "title": "ScrollToTop",
       "description": "Floating back-to-top button on the surface-button style.",
-      "dependencies": ["lucide-react"],
-      "files": [{ "path": "registry/patterns/scroll-to-top.tsx", "type": "registry:component" }]
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/patterns/scroll-to-top.tsx",
+          "type": "registry:component"
+        }
+      ]
     },
     {
       "name": "skeleton",
-      "type": "registry:component",
+      "type": "registry:ui",
       "title": "Skeleton",
       "description": "Loading block with the identity shimmer.",
-      "registryDependencies": ["utils"],
-      "files": [{ "path": "registry/patterns/skeleton.tsx", "type": "registry:component" }]
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "alert",
+      "description": "alert (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "alert-dialog",
+      "description": "alert-dialog (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "title": "aspect-ratio",
+      "description": "aspect-ratio (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "attachment",
+      "type": "registry:ui",
+      "title": "attachment",
+      "description": "attachment (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/attachment.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "breadcrumb",
+      "description": "breadcrumb (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "title": "bubble",
+      "description": "bubble (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/bubble.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "button-group",
+      "description": "button-group (identity-styled).",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json",
+        "https://ui.lscaturchio.xyz/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "calendar",
+      "description": "calendar (identity-styled).",
+      "dependencies": [
+        "react-day-picker@latest",
+        "date-fns",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "title": "carousel",
+      "description": "carousel (identity-styled).",
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "chart",
+      "description": "chart (identity-styled).",
+      "dependencies": [
+        "recharts@3.8.0",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/card.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "checkbox",
+      "description": "checkbox (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "title": "collapsible",
+      "description": "collapsible (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "combobox",
+      "description": "combobox (identity-styled).",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json",
+        "https://ui.lscaturchio.xyz/r/input-group.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "command",
+      "description": "command (identity-styled).",
+      "dependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "title": "context-menu",
+      "description": "context-menu (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "dialog",
+      "description": "dialog (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "title": "direction",
+      "description": "direction (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/direction.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "drawer",
+      "description": "drawer (identity-styled).",
+      "dependencies": [
+        "vaul"
+      ],
+      "files": [
+        {
+          "path": "components/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "dropdown-menu",
+      "description": "dropdown-menu (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "empty",
+      "description": "empty (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "field",
+      "description": "field (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/label.json",
+        "https://ui.lscaturchio.xyz/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "form",
+      "description": "form (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "@hookform/resolvers",
+        "zod",
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json",
+        "https://ui.lscaturchio.xyz/r/label.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "title": "hover-card",
+      "description": "hover-card (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "input",
+      "description": "input (identity-styled).",
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "input-group",
+      "description": "input-group (identity-styled).",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json",
+        "https://ui.lscaturchio.xyz/r/input.json",
+        "https://ui.lscaturchio.xyz/r/textarea.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "title": "input-otp",
+      "description": "input-otp (identity-styled).",
+      "dependencies": [
+        "input-otp",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "item",
+      "description": "item (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/separator.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "kbd",
+      "description": "kbd (identity-styled).",
+      "files": [
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "label",
+      "description": "label (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "marker",
+      "type": "registry:ui",
+      "title": "marker",
+      "description": "marker (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/marker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "title": "menubar",
+      "description": "menubar (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "title": "message",
+      "description": "message (identity-styled).",
+      "files": [
+        {
+          "path": "components/ui/message.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "title": "message-scroller",
+      "description": "message-scroller (identity-styled).",
+      "dependencies": [
+        "@shadcn/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/message-scroller.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "title": "native-select",
+      "description": "native-select (identity-styled).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "title": "navigation-menu",
+      "description": "navigation-menu (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "pagination",
+      "description": "pagination (identity-styled).",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "popover",
+      "description": "popover (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "progress",
+      "description": "progress (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "radio-group",
+      "description": "radio-group (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "title": "resizable",
+      "description": "resizable (identity-styled).",
+      "dependencies": [
+        "react-resizable-panels@^4",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "scroll-area",
+      "description": "scroll-area (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "select",
+      "description": "select (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "separator",
+      "description": "separator (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "sheet",
+      "description": "sheet (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "sidebar",
+      "description": "sidebar (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/button.json",
+        "https://ui.lscaturchio.xyz/r/separator.json",
+        "https://ui.lscaturchio.xyz/r/sheet.json",
+        "https://ui.lscaturchio.xyz/r/tooltip.json",
+        "https://ui.lscaturchio.xyz/r/input.json",
+        "https://ui.lscaturchio.xyz/r/use-mobile.json",
+        "https://ui.lscaturchio.xyz/r/skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "slider",
+      "description": "slider (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "sonner",
+      "description": "sonner (identity-styled).",
+      "dependencies": [
+        "sonner",
+        "next-themes",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "spinner",
+      "description": "spinner (identity-styled).",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "switch",
+      "description": "switch (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "table",
+      "description": "table (identity-styled).",
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "tabs",
+      "description": "tabs (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "textarea",
+      "description": "textarea (identity-styled).",
+      "files": [
+        {
+          "path": "components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "toggle",
+      "description": "toggle (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "title": "toggle-group",
+      "description": "toggle-group (identity-styled).",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://ui.lscaturchio.xyz/r/toggle.json"
+      ],
+      "files": [
+        {
+          "path": "components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "tooltip",
+      "description": "tooltip (identity-styled).",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "use-mobile",
+      "description": "use-mobile (identity-styled).",
+      "files": [
+        {
+          "path": "hooks/use-mobile.ts",
+          "type": "registry:hook",
+          "target": "hooks/use-mobile.ts"
+        }
+      ]
     }
   ]
 }

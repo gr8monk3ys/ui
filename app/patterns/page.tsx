@@ -1,9 +1,9 @@
-import { ActiveNavLink } from "@/registry/patterns/active-nav-link";
-import { BreadcrumbNav } from "@/registry/patterns/breadcrumb-nav";
-import { Reveal } from "@/registry/patterns/reveal";
-import { ScrollToTop } from "@/registry/patterns/scroll-to-top";
-import { Skeleton } from "@/registry/patterns/skeleton";
-import { Section, SectionHeader } from "@/registry/ui/section";
+import { ActiveNavLink } from "@/components/patterns/active-nav-link";
+import { BreadcrumbNav } from "@/components/patterns/breadcrumb-nav";
+import { Reveal } from "@/components/patterns/reveal";
+import { ScrollToTop } from "@/components/patterns/scroll-to-top";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Section, SectionHeader } from "@/components/ui/section";
 
 export default function PatternsPage() {
   return (

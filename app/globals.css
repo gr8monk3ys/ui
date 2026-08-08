@@ -1,3 +1,4 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
 @import '../registry/theme/identity.css';

@@ -45,11 +45,22 @@ override them. Each app may set exactly two knobs, after the import:
 
 ## Items
 
-| Item | What |
+| Category | Items |
 |---|---|
-| `theme` | identity.css (tokens, type scale, surfaces, motion) + fonts.ts |
-| `button` `card` `badge` `accordion` `avatar` `section` `theme-toggle` | styled primitives |
-| `reveal` `active-nav-link` `breadcrumb-nav` `scroll-to-top` `skeleton` | signature patterns |
+| Theme | `theme` (identity.css + fonts.ts; add `@import 'tw-animate-css';` alongside) |
+| Identity primitives | `button` `card` `badge` `accordion` `avatar` `section` `theme-toggle` `skeleton` |
+| Patterns | `reveal` `active-nav-link` `breadcrumb-nav` `scroll-to-top` |
+| Forms & inputs | `button-group` `calendar` `checkbox` `combobox` `field` `form` `input` `input-group` `input-otp` `label` `native-select` `radio-group` `select` `slider` `switch` `textarea` `toggle` `toggle-group` |
+| Overlays | `alert-dialog` `command` `context-menu` `dialog` `drawer` `dropdown-menu` `hover-card` `menubar` `popover` `sheet` `sonner` `tooltip` |
+| Navigation | `breadcrumb` `direction` `navigation-menu` `pagination` `sidebar` `tabs` |
+| Data display | `aspect-ratio` `carousel` `chart` `empty` `item` `kbd` `marker` `table` |
+| Feedback | `alert` `progress` `spinner` |
+| Layout | `collapsible` `resizable` `scroll-area` `separator` |
+| AI chat | `attachment` `bubble` `message` `message-scroller` |
+| Hooks | `use-mobile` |
+
+Upstream lists `toast` and `questionnaire` but publishes no installable item
+for them (their own CLI 404s); they'll be added when upstream ships them.
 
 ## Develop
 

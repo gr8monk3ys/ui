@@ -1,10 +1,10 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/registry/ui/accordion";
-import { Avatar, AvatarFallback } from "@/registry/ui/avatar";
-import { Badge } from "@/registry/ui/badge";
-import { Button } from "@/registry/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/registry/ui/card";
-import { Section, SectionHeader } from "@/registry/ui/section";
-import { ThemeToggle } from "@/registry/ui/theme-toggle";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Section, SectionHeader } from "@/components/ui/section";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const COLOR_TOKENS = [
   "background", "foreground", "card", "muted", "accent",
@@ -30,7 +30,8 @@ export default function Home() {
           patterns. Pull any piece with <code className="font-mono text-sm">npx shadcn add</code>.
         </p>
         <div className="mt-8 flex items-center gap-4">
-          <a className="cta-primary rounded-xl px-6 py-3" href="/patterns">Patterns</a>
+          <a className="cta-primary rounded-xl px-6 py-3" href="/components">Components</a>
+          <a className="cta-secondary rounded-xl px-6 py-3" href="/patterns">Patterns</a>
           <a className="cta-secondary rounded-xl px-6 py-3" href="https://github.com/gr8monk3ys/ui">GitHub</a>
           <ThemeToggle />
         </div>
