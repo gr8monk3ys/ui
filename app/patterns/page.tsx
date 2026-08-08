@@ -2,7 +2,7 @@ import { ActiveNavLink } from "@/components/patterns/active-nav-link";
 import { BreadcrumbNav } from "@/components/patterns/breadcrumb-nav";
 import { Reveal } from "@/components/patterns/reveal";
 import { ScrollToTop } from "@/components/patterns/scroll-to-top";
-import { Skeleton } from "@/components/patterns/skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Section, SectionHeader } from "@/components/ui/section";
 
 export default function PatternsPage() {

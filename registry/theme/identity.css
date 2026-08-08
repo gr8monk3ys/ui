@@ -649,3 +649,38 @@
     scroll-margin-top: 6rem;
   }
 }
+
+/* Sidebar tokens (consumed by the sidebar component) — identity paper/green. */
+@theme {
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+@layer base {
+  :root {
+    --sidebar: 38 25% 95%;
+    --sidebar-foreground: 210 15% 12%;
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 32 50% 92%;
+    --sidebar-accent-foreground: 215 15% 16%;
+    --sidebar-border: 30 18% 86%;
+    --sidebar-ring: var(--primary);
+  }
+  .dark {
+    --sidebar: 220 15% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 210 16% 16%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 10% 18%;
+    --sidebar-ring: var(--primary);
+  }
+}
