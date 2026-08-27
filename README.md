@@ -1,9 +1,21 @@
 # ui
 
-The [lscaturchio.xyz](https://lscaturchio.xyz) visual identity — warm paper,
-forest green, Fraunces/Instrument Sans/IBM Plex Mono, monospace wall labels,
-hairline dividers, restrained motion — packaged as a shadcn registry so any
-of my apps can adopt it.
+A shadcn registry at `https://ui.lscaturchio.xyz/r/<item>.json`. Install the
+theme with `npx shadcn@latest add https://ui.lscaturchio.xyz/r/theme.json`
+and any of ~70 components the same way; the CLI copies the source into your
+app, so there is nothing to depend on at runtime.
+
+The registry exists so my apps stop drifting apart visually. The `theme`
+item (`registry/theme/identity.css` + `fonts.ts`) decides everything an app
+should not be deciding for itself: warm paper background (`38 25% 97%`)
+with a slate-night dark mode, forest-green primary (`152 52% 20%`),
+Fraunces for display, Instrument Sans for body, IBM Plex Mono for the
+uppercase "wall label" captions, hairline borders instead of shadows, a
+fluid `clamp()` type scale, 150/200/300 ms motion durations, and a fixed
+paper-grain overlay. An app gets exactly two knobs, `--primary` and
+`--radius`; the ring colour and the whole radius scale derive from them.
+
+![The registry gallery: colour tokens, type scale and components on warm paper](docs/screenshot.png)
 
 ## Use it
 
