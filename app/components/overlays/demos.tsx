@@ -77,144 +77,145 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 export function OverlaysDemos() {
   return (
-    <div className="grid gap-8 lg:grid-cols-2">
+    <>
       <Toaster />
+      <div className="grid gap-8 lg:grid-cols-2">
+        <DemoBlock label="DIALOG" items={["dialog"]}>
+          <Dialog>
+            <DialogTrigger asChild><Button variant="outline">Open dialog</Button></DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Wall label</DialogTitle>
+                <DialogDescription>Frosted paper over the gallery floor.</DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        </DemoBlock>
 
-      <DemoBlock label="DIALOG">
-        <Dialog>
-          <DialogTrigger asChild><Button variant="outline">Open dialog</Button></DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Wall label</DialogTitle>
-              <DialogDescription>Frosted paper over the gallery floor.</DialogDescription>
-            </DialogHeader>
-          </DialogContent>
-        </Dialog>
-      </DemoBlock>
+        <DemoBlock label="ALERT-DIALOG" items={["alert-dialog"]}>
+          <AlertDialog>
+            <AlertDialogTrigger asChild><Button variant="destructive">Delete draft</Button></AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Discard this draft?</AlertDialogTitle>
+                <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Keep it</AlertDialogCancel>
+                <AlertDialogAction>Discard</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </DemoBlock>
 
-      <DemoBlock label="ALERT-DIALOG">
-        <AlertDialog>
-          <AlertDialogTrigger asChild><Button variant="destructive">Delete draft</Button></AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Discard this draft?</AlertDialogTitle>
-              <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Keep it</AlertDialogCancel>
-              <AlertDialogAction>Discard</AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-      </DemoBlock>
+        <DemoBlock label="SHEET" items={["sheet"]}>
+          <Sheet>
+            <SheetTrigger asChild><Button variant="outline">Open sheet</Button></SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Side panel</SheetTitle>
+                <SheetDescription>Slides in from the edge on frosted paper.</SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </DemoBlock>
 
-      <DemoBlock label="SHEET">
-        <Sheet>
-          <SheetTrigger asChild><Button variant="outline">Open sheet</Button></SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Side panel</SheetTitle>
-              <SheetDescription>Slides in from the edge on frosted paper.</SheetDescription>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
-      </DemoBlock>
+        <DemoBlock label="DRAWER" items={["drawer"]}>
+          <Drawer>
+            <DrawerTrigger asChild><Button variant="outline">Open drawer</Button></DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Bottom drawer</DrawerTitle>
+                <DrawerDescription>For mobile-first flows.</DrawerDescription>
+              </DrawerHeader>
+            </DrawerContent>
+          </Drawer>
+        </DemoBlock>
 
-      <DemoBlock label="DRAWER">
-        <Drawer>
-          <DrawerTrigger asChild><Button variant="outline">Open drawer</Button></DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerTitle>Bottom drawer</DrawerTitle>
-              <DrawerDescription>For mobile-first flows.</DrawerDescription>
-            </DrawerHeader>
-          </DrawerContent>
-        </Drawer>
-      </DemoBlock>
+        <DemoBlock label="POPOVER" items={["popover"]}>
+          <Popover>
+            <PopoverTrigger asChild><Button variant="outline">Open popover</Button></PopoverTrigger>
+            <PopoverContent className="text-body-sm">Anchored floating panel with a hairline border.</PopoverContent>
+          </Popover>
+        </DemoBlock>
 
-      <DemoBlock label="POPOVER">
-        <Popover>
-          <PopoverTrigger asChild><Button variant="outline">Open popover</Button></PopoverTrigger>
-          <PopoverContent className="text-body-sm">Anchored floating panel with a hairline border.</PopoverContent>
-        </Popover>
-      </DemoBlock>
+        <DemoBlock label="HOVER-CARD" items={["hover-card"]}>
+          <HoverCard>
+            <HoverCardTrigger asChild><Button variant="link">@gr8monk3ys</Button></HoverCardTrigger>
+            <HoverCardContent className="text-body-sm">Builds identities and the tools that wear them.</HoverCardContent>
+          </HoverCard>
+        </DemoBlock>
 
-      <DemoBlock label="HOVER-CARD">
-        <HoverCard>
-          <HoverCardTrigger asChild><Button variant="link">@gr8monk3ys</Button></HoverCardTrigger>
-          <HoverCardContent className="text-body-sm">Builds identities and the tools that wear them.</HoverCardContent>
-        </HoverCard>
-      </DemoBlock>
+        <DemoBlock label="DROPDOWN-MENU" items={["dropdown-menu"]}>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild><Button variant="outline">Actions</Button></DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Draft</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Edit <DropdownMenuShortcut>⌘E</DropdownMenuShortcut></DropdownMenuItem>
+              <DropdownMenuItem>Duplicate <DropdownMenuShortcut>⌘D</DropdownMenuShortcut></DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </DemoBlock>
 
-      <DemoBlock label="DROPDOWN-MENU">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild><Button variant="outline">Actions</Button></DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Draft</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Edit <DropdownMenuShortcut>⌘E</DropdownMenuShortcut></DropdownMenuItem>
-            <DropdownMenuItem>Duplicate <DropdownMenuShortcut>⌘D</DropdownMenuShortcut></DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </DemoBlock>
+        <DemoBlock label="CONTEXT-MENU (right-click)" items={["context-menu"]}>
+          <ContextMenu>
+            <ContextMenuTrigger className="surface-recessed block rounded-2xl p-8 text-center text-description-sm">
+              Right-click this paper
+            </ContextMenuTrigger>
+            <ContextMenuContent>
+              <ContextMenuItem>Copy</ContextMenuItem>
+              <ContextMenuItem>Rename</ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenu>
+        </DemoBlock>
 
-      <DemoBlock label="CONTEXT-MENU (right-click)">
-        <ContextMenu>
-          <ContextMenuTrigger className="surface-recessed block rounded-2xl p-8 text-center text-description-sm">
-            Right-click this paper
-          </ContextMenuTrigger>
-          <ContextMenuContent>
-            <ContextMenuItem>Copy</ContextMenuItem>
-            <ContextMenuItem>Rename</ContextMenuItem>
-          </ContextMenuContent>
-        </ContextMenu>
-      </DemoBlock>
+        <DemoBlock label="MENUBAR" items={["menubar"]}>
+          <Menubar>
+            <MenubarMenu>
+              <MenubarTrigger>File</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>New essay</MenubarItem>
+                <MenubarItem>Export</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+            <MenubarMenu>
+              <MenubarTrigger>View</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>Zoom in</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
+        </DemoBlock>
 
-      <DemoBlock label="MENUBAR">
-        <Menubar>
-          <MenubarMenu>
-            <MenubarTrigger>File</MenubarTrigger>
-            <MenubarContent>
-              <MenubarItem>New essay</MenubarItem>
-              <MenubarItem>Export</MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-          <MenubarMenu>
-            <MenubarTrigger>View</MenubarTrigger>
-            <MenubarContent>
-              <MenubarItem>Zoom in</MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-        </Menubar>
-      </DemoBlock>
+        <DemoBlock label="TOOLTIP" items={["tooltip"]}>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild><Button variant="outline">Hover me</Button></TooltipTrigger>
+              <TooltipContent>A small caption beside the work.</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </DemoBlock>
 
-      <DemoBlock label="TOOLTIP">
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild><Button variant="outline">Hover me</Button></TooltipTrigger>
-            <TooltipContent>A small caption beside the work.</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </DemoBlock>
+        <DemoBlock label="COMMAND" items={["command"]}>
+          <Command className="max-w-sm rounded-xl border">
+            <CommandInput placeholder="Type a command…" />
+            <CommandList>
+              <CommandEmpty>No results.</CommandEmpty>
+              <CommandGroup heading="Suggestions">
+                <CommandItem>Open gallery <CommandShortcut>⌘G</CommandShortcut></CommandItem>
+                <CommandItem>Toggle theme <CommandShortcut>⌘T</CommandShortcut></CommandItem>
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </DemoBlock>
 
-      <DemoBlock label="COMMAND">
-        <Command className="max-w-sm rounded-xl border">
-          <CommandInput placeholder="Type a command…" />
-          <CommandList>
-            <CommandEmpty>No results.</CommandEmpty>
-            <CommandGroup heading="Suggestions">
-              <CommandItem>Open gallery <CommandShortcut>⌘G</CommandShortcut></CommandItem>
-              <CommandItem>Toggle theme <CommandShortcut>⌘T</CommandShortcut></CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </DemoBlock>
-
-      <DemoBlock label="SONNER (toasts)">
-        <Button variant="outline" onClick={() => toast("Saved to the catalogue.", { description: "NO. 004 — filed under identity." })}>
-          Show toast
-        </Button>
-      </DemoBlock>
-    </div>
+        <DemoBlock label="SONNER (toasts)" items={["sonner"]}>
+          <Button variant="outline" onClick={() => toast("Saved to the catalogue.", { description: "NO. 004 — filed under identity." })}>
+            Show toast
+          </Button>
+        </DemoBlock>
+      </div>
+    </>
   );
 }

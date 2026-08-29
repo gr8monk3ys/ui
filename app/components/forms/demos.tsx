@@ -88,18 +88,18 @@ export function FormsDemos() {
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
-      <DemoBlock label="INPUT + LABEL">
+      <DemoBlock label="INPUT + LABEL" items={["input", "label"]}>
         <div className="grid max-w-sm gap-2">
           <Label htmlFor="email-demo">Email</Label>
           <Input id="email-demo" placeholder="you@example.com" />
         </div>
       </DemoBlock>
 
-      <DemoBlock label="TEXTAREA">
+      <DemoBlock label="TEXTAREA" items={["textarea"]}>
         <Textarea className="max-w-sm" placeholder="A short note…" />
       </DemoBlock>
 
-      <DemoBlock label="SELECT">
+      <DemoBlock label="SELECT" items={["select"]}>
         <Select>
           <SelectTrigger className="w-48"><SelectValue placeholder="Pick a fruit" /></SelectTrigger>
           <SelectContent>
@@ -108,13 +108,13 @@ export function FormsDemos() {
         </Select>
       </DemoBlock>
 
-      <DemoBlock label="NATIVE-SELECT">
+      <DemoBlock label="NATIVE-SELECT" items={["native-select"]}>
         <NativeSelect className="w-48">
           {FRUITS.map((f) => <option key={f}>{f}</option>)}
         </NativeSelect>
       </DemoBlock>
 
-      <DemoBlock label="COMBOBOX">
+      <DemoBlock label="COMBOBOX" items={["combobox"]}>
         <Combobox items={FRUITS}>
           <ComboboxInput placeholder="Search fruit…" className="w-56" />
           <ComboboxContent>
@@ -126,14 +126,14 @@ export function FormsDemos() {
         </Combobox>
       </DemoBlock>
 
-      <DemoBlock label="CHECKBOX + SWITCH">
+      <DemoBlock label="CHECKBOX + SWITCH" items={["checkbox", "switch"]}>
         <div className="flex items-center gap-8">
           <label className="flex items-center gap-2 text-sm"><Checkbox defaultChecked /> Subscribed</label>
           <label className="flex items-center gap-2 text-sm"><Switch defaultChecked /> Dark mode</label>
         </div>
       </DemoBlock>
 
-      <DemoBlock label="RADIO-GROUP">
+      <DemoBlock label="RADIO-GROUP" items={["radio-group"]}>
         <RadioGroup defaultValue="essays" className="flex gap-6">
           {["essays", "photos", "code"].map((v) => (
             <label key={v} className="flex items-center gap-2 text-sm capitalize"><RadioGroupItem value={v} /> {v}</label>
@@ -141,11 +141,11 @@ export function FormsDemos() {
         </RadioGroup>
       </DemoBlock>
 
-      <DemoBlock label="SLIDER">
+      <DemoBlock label="SLIDER" items={["slider"]}>
         <Slider defaultValue={[40]} max={100} step={1} className="max-w-sm" />
       </DemoBlock>
 
-      <DemoBlock label="TOGGLE + TOGGLE-GROUP">
+      <DemoBlock label="TOGGLE + TOGGLE-GROUP" items={["toggle", "toggle-group"]}>
         <div className="flex items-center gap-6">
           <Toggle aria-label="Bold">B</Toggle>
           <ToggleGroup type="multiple" defaultValue={["a"]}>
@@ -156,7 +156,7 @@ export function FormsDemos() {
         </div>
       </DemoBlock>
 
-      <DemoBlock label="BUTTON-GROUP">
+      <DemoBlock label="BUTTON-GROUP" items={["button-group"]}>
         <ButtonGroup>
           <Button variant="outline">Day</Button>
           <Button variant="outline">Week</Button>
@@ -164,14 +164,14 @@ export function FormsDemos() {
         </ButtonGroup>
       </DemoBlock>
 
-      <DemoBlock label="INPUT-GROUP">
+      <DemoBlock label="INPUT-GROUP" items={["input-group"]}>
         <InputGroup className="max-w-sm">
           <InputGroupAddon><InputGroupText>https://</InputGroupText></InputGroupAddon>
           <InputGroupInput placeholder="lscaturchio.xyz" />
         </InputGroup>
       </DemoBlock>
 
-      <DemoBlock label="INPUT-OTP">
+      <DemoBlock label="INPUT-OTP" items={["input-otp"]}>
         <InputOTP maxLength={6}>
           <InputOTPGroup>
             <InputOTPSlot index={0} /><InputOTPSlot index={1} /><InputOTPSlot index={2} />
@@ -183,7 +183,7 @@ export function FormsDemos() {
         </InputOTP>
       </DemoBlock>
 
-      <DemoBlock label="FIELD">
+      <DemoBlock label="FIELD" items={["field"]}>
         <Field className="max-w-sm">
           <FieldLabel htmlFor="handle-demo">Handle</FieldLabel>
           <Input id="handle-demo" placeholder="@gr8monk3ys" />
@@ -191,12 +191,25 @@ export function FormsDemos() {
         </Field>
       </DemoBlock>
 
-      <DemoBlock label="FORM (react-hook-form + zod)">
+      <DemoBlock label="FORM (react-hook-form + zod)" items={["form"]}>
         <ContactFormDemo />
       </DemoBlock>
 
-      <DemoBlock label="CALENDAR">
+      <DemoBlock label="CALENDAR" items={["calendar"]}>
         <Calendar mode="single" selected={date} onSelect={setDate} />
+      </DemoBlock>
+
+      <DemoBlock label="BUTTON" items={["button"]}>
+        <div className="flex flex-wrap items-center gap-3">
+          <Button>Default</Button>
+          <Button variant="primary">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="link">Link</Button>
+          <Button variant="destructive">Destructive</Button>
+          <Button disabled>Disabled</Button>
+        </div>
       </DemoBlock>
     </div>
   );

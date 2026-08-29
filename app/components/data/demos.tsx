@@ -5,7 +5,10 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import { DemoBlock } from "@/components/gallery/demo-block";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -61,7 +64,7 @@ const INVOICES = [
 export function DataDemos() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
-      <DemoBlock label="TABLE">
+      <DemoBlock label="TABLE" items={["table"]}>
         <Table>
           <TableCaption className="label-mono">CATALOGUE — Q2 2026</TableCaption>
           <TableHeader>
@@ -83,7 +86,7 @@ export function DataDemos() {
         </Table>
       </DemoBlock>
 
-      <DemoBlock label="CHART (recharts)">
+      <DemoBlock label="CHART (recharts)" items={["chart"]}>
         <ChartContainer config={chartConfig} className="h-56 w-full">
           <BarChart data={chartData}>
             <CartesianGrid vertical={false} />
@@ -94,7 +97,7 @@ export function DataDemos() {
         </ChartContainer>
       </DemoBlock>
 
-      <DemoBlock label="CAROUSEL">
+      <DemoBlock label="CAROUSEL" items={["carousel"]}>
         <Carousel className="mx-12">
           <CarouselContent>
             {["Paper", "Green", "Mono"].map((t) => (
@@ -110,7 +113,7 @@ export function DataDemos() {
         </Carousel>
       </DemoBlock>
 
-      <DemoBlock label="ASPECT-RATIO (16/9)">
+      <DemoBlock label="ASPECT-RATIO (16/9)" items={["aspect-ratio"]}>
         <AspectRatio ratio={16 / 9}>
           <div className="surface-recessed flex h-full w-full items-center justify-center rounded-2xl">
             <Camera className="text-muted-foreground h-6 w-6" />
@@ -118,7 +121,7 @@ export function DataDemos() {
         </AspectRatio>
       </DemoBlock>
 
-      <DemoBlock label="ITEM">
+      <DemoBlock label="ITEM" items={["item"]}>
         <Item variant="outline">
           <ItemMedia variant="icon"><FileText /></ItemMedia>
           <ItemContent>
@@ -129,7 +132,7 @@ export function DataDemos() {
         </Item>
       </DemoBlock>
 
-      <DemoBlock label="KBD">
+      <DemoBlock label="KBD" items={["kbd"]}>
         <KbdGroup>
           <Kbd>⌘</Kbd>
           <Kbd>⇧</Kbd>
@@ -137,14 +140,14 @@ export function DataDemos() {
         </KbdGroup>
       </DemoBlock>
 
-      <DemoBlock label="MARKER">
+      <DemoBlock label="MARKER" items={["marker"]}>
         <div className="flex items-center gap-4">
           <Marker><MarkerIcon><BookOpen /></MarkerIcon><MarkerContent>Reading</MarkerContent></Marker>
           <Marker variant="border"><MarkerContent>2026</MarkerContent></Marker>
         </div>
       </DemoBlock>
 
-      <DemoBlock label="EMPTY">
+      <DemoBlock label="EMPTY" items={["empty"]}>
         <Empty>
           <EmptyHeader>
             <EmptyMedia variant="icon"><Inbox /></EmptyMedia>
@@ -152,6 +155,34 @@ export function DataDemos() {
             <EmptyDescription>The catalogue drawer is open and waiting.</EmptyDescription>
           </EmptyHeader>
         </Empty>
+      </DemoBlock>
+
+      <DemoBlock label="CARD" items={["card"]}>
+        <Card>
+          <CardHeader>
+            <CardTitle>Editorial card</CardTitle>
+            <CardDescription>Hairline border, hover lift, no chrome.</CardDescription>
+          </CardHeader>
+          <CardContent className="text-body-sm">
+            Content on open paper, divided by space and thin lines.
+          </CardContent>
+        </Card>
+      </DemoBlock>
+
+      <DemoBlock label="BADGE" items={["badge"]}>
+        <div className="flex flex-wrap items-center gap-3">
+          <Badge>Default</Badge>
+          <Badge variant="secondary">Secondary</Badge>
+          <Badge variant="outline">Outline</Badge>
+          <Badge variant="destructive">Destructive</Badge>
+        </div>
+      </DemoBlock>
+
+      <DemoBlock label="AVATAR" items={["avatar"]}>
+        <div className="flex items-center gap-3">
+          <Avatar><AvatarFallback>LS</AvatarFallback></Avatar>
+          <Avatar><AvatarFallback>UI</AvatarFallback></Avatar>
+        </div>
       </DemoBlock>
     </div>
   );

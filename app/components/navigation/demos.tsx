@@ -1,5 +1,6 @@
 "use client";
 
+import { BreadcrumbNav } from "@/components/patterns/breadcrumb-nav";
 import { DemoBlock } from "@/components/gallery/demo-block";
 import {
   Breadcrumb,
@@ -43,7 +44,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export function NavigationDemos() {
   return (
     <div className="grid gap-8">
-      <DemoBlock label="BREADCRUMB (composable)">
+      <DemoBlock label="BREADCRUMB (composable)" items={["breadcrumb"]}>
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem><BreadcrumbLink href="/">Home</BreadcrumbLink></BreadcrumbItem>
@@ -55,7 +56,7 @@ export function NavigationDemos() {
         </Breadcrumb>
       </DemoBlock>
 
-      <DemoBlock label="TABS">
+      <DemoBlock label="TABS" items={["tabs"]}>
         <Tabs defaultValue="essays" className="max-w-md">
           <TabsList>
             <TabsTrigger value="essays">Essays</TabsTrigger>
@@ -68,7 +69,7 @@ export function NavigationDemos() {
         </Tabs>
       </DemoBlock>
 
-      <DemoBlock label="NAVIGATION-MENU">
+      <DemoBlock label="NAVIGATION-MENU" items={["navigation-menu"]}>
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -84,7 +85,7 @@ export function NavigationDemos() {
         </NavigationMenu>
       </DemoBlock>
 
-      <DemoBlock label="PAGINATION">
+      <DemoBlock label="PAGINATION" items={["pagination"]}>
         <Pagination>
           <PaginationContent>
             <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
@@ -96,7 +97,7 @@ export function NavigationDemos() {
         </Pagination>
       </DemoBlock>
 
-      <DemoBlock label="SIDEBAR (embedded demo)">
+      <DemoBlock label="SIDEBAR (embedded demo)" items={["sidebar"]}>
         <SidebarProvider className="min-h-[320px] overflow-hidden rounded-2xl border">
           <Sidebar collapsible="none">
             <SidebarContent>
@@ -116,7 +117,7 @@ export function NavigationDemos() {
         </SidebarProvider>
       </DemoBlock>
 
-      <DemoBlock label="DIRECTION (RTL)">
+      <DemoBlock label="DIRECTION (RTL)" items={["direction"]}>
         <DirectionProvider dir="rtl">
           <Tabs defaultValue="a" className="max-w-md" dir="rtl">
             <TabsList>
@@ -127,6 +128,10 @@ export function NavigationDemos() {
             <TabsContent value="b" className="text-body-sm pt-3">Second panel.</TabsContent>
           </Tabs>
         </DirectionProvider>
+      </DemoBlock>
+
+      <DemoBlock label="BREADCRUMB-NAV (derived from the route)" items={["breadcrumb-nav"]}>
+        <BreadcrumbNav />
       </DemoBlock>
     </div>
   );
