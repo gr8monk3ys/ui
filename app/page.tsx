@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const COLOR_TOKENS = [
   "background", "foreground", "card", "muted", "accent",
@@ -29,11 +28,10 @@ export default function Home() {
           The lscaturchio.xyz identity as reusable tokens, components, and
           patterns. Pull any piece with <code className="font-mono text-sm">npx shadcn add</code>.
         </p>
-        <div className="mt-8 flex items-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <a className="cta-primary rounded-xl px-6 py-3" href="/components">Components</a>
           <a className="cta-secondary rounded-xl px-6 py-3" href="/patterns">Patterns</a>
           <a className="cta-secondary rounded-xl px-6 py-3" href="https://github.com/gr8monk3ys/ui">GitHub</a>
-          <ThemeToggle />
         </div>
       </Section>
 
