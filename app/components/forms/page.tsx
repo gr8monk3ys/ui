@@ -7,7 +7,7 @@ export default function FormsPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="05.1" eyebrow="CATALOG" title="Forms & inputs" />
+        <SectionHeader as="h1" index="05.1" eyebrow="CATALOG" title="Forms & inputs" />
         <FormsDemos />
       </Section>
     </main>

@@ -7,6 +7,9 @@ import type { TooltipValueType } from "recharts"
 import { cn } from "@/lib/utils"
 
 // Format: { THEME_NAME: CSS_SELECTOR }
+// Tooltip numbers: Intl, pinned to en-US to match the page (no locale drift).
+const VALUE_FORMAT = new Intl.NumberFormat("en-US")
+
 const THEMES = { light: "", dark: ".dark" } as const
 
 const INITIAL_DIMENSION = { width: 320, height: 200 } as const
@@ -255,7 +258,7 @@ function ChartTooltipContent({
                       {item.value != null && (
                         <span className="font-mono font-medium text-foreground tabular-nums">
                           {typeof item.value === "number"
-                            ? item.value.toLocaleString()
+                            ? VALUE_FORMAT.format(item.value)
                             : String(item.value)}
                         </span>
                       )}

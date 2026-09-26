@@ -106,6 +106,8 @@ interface SectionHeaderProps {
   index?: string;
   /** Mono kicker / eyebrow shown above the title (e.g. "WRITING"). */
   eyebrow?: string;
+  /** Heading level for the title. Use 1 for the page's first header. */
+  as?: "h1" | "h2" | "h3";
 }
 
 /**
@@ -121,6 +123,7 @@ export function SectionHeader({
   action,
   index,
   eyebrow,
+  as: Heading = "h2",
 }: SectionHeaderProps) {
   const kicker = [index, eyebrow].filter(Boolean).join(" — ");
 
@@ -138,7 +141,7 @@ export function SectionHeader({
               {kicker}
             </span>
           )}
-          <h2 className="text-section-title">{title}</h2>
+          <Heading className="text-section-title">{title}</Heading>
           {description && (
             <p className="mt-3 max-w-2xl text-muted-foreground">{description}</p>
           )}

@@ -7,7 +7,7 @@ export default function LayoutPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="05.6" eyebrow="CATALOG" title="Layout" />
+        <SectionHeader as="h1" index="05.6" eyebrow="CATALOG" title="Layout" />
         <LayoutDemos />
       </Section>
     </main>

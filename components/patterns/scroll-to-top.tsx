@@ -19,7 +19,15 @@ export function ScrollToTop() {
   return (
     <button
       type="button"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() =>
+        window.scrollTo({
+          top: 0,
+          // JS smooth scrolling ignores the CSS reduced-motion reset.
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth",
+        })
+      }
       aria-label="Scroll to top"
       className="surface-button fixed bottom-6 right-6 z-(--z-fixed) inline-flex h-10 w-10 items-center justify-center rounded-xl text-foreground hover:text-primary"
     >

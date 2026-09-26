@@ -7,7 +7,7 @@ export default function FeedbackPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="05.5" eyebrow="CATALOG" title="Feedback" />
+        <SectionHeader as="h1" index="05.5" eyebrow="CATALOG" title="Feedback" />
         <FeedbackDemos />
       </Section>
     </main>
