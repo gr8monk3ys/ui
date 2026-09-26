@@ -48,8 +48,11 @@ export function InstallCommand({ name, className }: { name: string; className?: 
         className="focus-ring shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:text-foreground"
       >
         {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-        <span className="sr-only">{copied ? "Copied" : "Copy"}</span>
       </button>
+      {/* Announce the result; the button's own label never changes. */}
+      <span className="sr-only" role="status">
+        {copied ? "Install command copied to clipboard" : ""}
+      </span>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function Home() {
     <main>
       <Section size="default" padding="default">
         <p className="label-mono mb-4">GR8MONK3YS — IDENTITY REGISTRY</p>
-        <h1 className="text-display">Warm paper, forest green, gallery language.</h1>
+        <h1 className="text-display">Warm Paper, Forest Green, Gallery Language.</h1>
         <p className="text-description mt-6 max-w-2xl">
           The lscaturchio.xyz identity as reusable tokens, components, and
           patterns. Pull any piece with <code className="font-mono text-sm">npx shadcn add</code>.
@@ -98,7 +98,7 @@ export default function Home() {
             <div className="grid gap-4 sm:grid-cols-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>Editorial card</CardTitle>
+                  <CardTitle>Editorial Card</CardTitle>
                   <CardDescription>Hairline border, hover lift, no chrome.</CardDescription>
                 </CardHeader>
                 <CardContent className="text-body-sm">

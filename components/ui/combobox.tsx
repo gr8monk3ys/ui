@@ -24,9 +24,14 @@ function ComboboxTrigger({
   children,
   ...props
 }: ComboboxPrimitive.Trigger.Props) {
+  // Own id: without it the trigger reuses the input's generated id
+  // (duplicate id in the DOM). Named, since it only shows an icon.
+  const triggerId = React.useId()
   return (
     <ComboboxPrimitive.Trigger
       data-slot="combobox-trigger"
+      id={triggerId}
+      aria-label="Show options"
       className={cn("[&_svg:not([class*='size-'])]:size-4", className)}
       {...props}
     >

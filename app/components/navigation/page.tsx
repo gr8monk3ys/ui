@@ -7,7 +7,7 @@ export default function NavigationPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="05.3" eyebrow="CATALOG" title="Navigation" />
+        <SectionHeader as="h1" index="05.3" eyebrow="CATALOG" title="Navigation" />
         <NavigationDemos />
       </Section>
     </main>

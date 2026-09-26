@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { CATALOG_COMPONENTS, CATEGORIES } from "@/components/gallery/catalog";
+import { DemoHeadingLevelProvider } from "@/components/gallery/demo-block";
 import { Section, SectionHeader } from "@/components/ui/section";
 
 import { ChatDemos } from "./chat/demos";
@@ -26,7 +27,7 @@ export default function ComponentsIndex() {
   return (
     <main>
       <Section padding="compact">
-        <SectionHeader
+        <SectionHeader as="h1"
           index="05"
           eyebrow="REGISTRY"
           title="Components"
@@ -62,7 +63,9 @@ export default function ComponentsIndex() {
               }
             />
             {Gallery ? (
-              <Gallery />
+              <DemoHeadingLevelProvider level={3}>
+                <Gallery />
+              </DemoHeadingLevelProvider>
             ) : (
               <div className="surface-recessed rounded-2xl card-padding">
                 <p className="text-description-sm">

@@ -7,7 +7,7 @@ export default function DataPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="05.4" eyebrow="CATALOG" title="Data display" />
+        <SectionHeader as="h1" index="05.4" eyebrow="CATALOG" title="Data display" />
         <DataDemos />
       </Section>
     </main>
