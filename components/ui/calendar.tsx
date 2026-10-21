@@ -15,6 +15,11 @@ import {
 import { cn } from "@/lib/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
 
+// Pinned formatters (the site renders `lang="en"`): the same string on the
+// server and in every browser, whatever the visitor's OS locale.
+const MONTH_SHORT = new Intl.DateTimeFormat("en-US", { month: "short" })
+const DAY_KEY = new Intl.DateTimeFormat("en-US")
+
 function Calendar({
   className,
   classNames,
@@ -40,8 +45,7 @@ function Calendar({
       )}
       captionLayout={captionLayout}
       formatters={{
-        formatMonthDropdown: (date) =>
-          date.toLocaleString("default", { month: "short" }),
+        formatMonthDropdown: (date) => MONTH_SHORT.format(date),
         ...formatters,
       }}
       classNames={{
@@ -197,7 +201,7 @@ function CalendarDayButton({
       ref={ref}
       variant="ghost"
       size="icon"
-      data-day={day.date.toLocaleDateString()}
+      data-day={DAY_KEY.format(day.date)}
       data-selected-single={
         modifiers.selected &&
         !modifiers.range_start &&

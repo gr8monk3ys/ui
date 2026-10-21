@@ -7,7 +7,7 @@ export default function OverlaysPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="05.2" eyebrow="CATALOG" title="Overlays" />
+        <SectionHeader as="h1" index="05.2" eyebrow="CATALOG" title="Overlays" />
         <OverlaysDemos />
       </Section>
     </main>

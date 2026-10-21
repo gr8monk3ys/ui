@@ -7,7 +7,7 @@ export default function ChatPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="05.7" eyebrow="CATALOG" title="AI chat"
+        <SectionHeader as="h1" index="05.7" eyebrow="CATALOG" title="AI chat"
           description="Static demos — the components are UI-only and plug into any chat backend." />
         <ChatDemos />
       </Section>

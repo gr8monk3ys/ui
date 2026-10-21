@@ -27,7 +27,7 @@ export function LayoutDemos() {
           <div className="flex items-center justify-between">
             <span className="text-label">Three more essays</span>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="icon-sm"><ChevronsUpDown /></Button>
+              <Button variant="ghost" size="icon-sm" aria-label="Toggle details"><ChevronsUpDown /></Button>
             </CollapsibleTrigger>
           </div>
           <CollapsibleContent className="text-description-sm grid gap-2 pt-2">

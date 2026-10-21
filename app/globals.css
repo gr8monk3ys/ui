@@ -2,3 +2,53 @@
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
 @import '../registry/theme/identity.css';
+
+/* ---------------------------------------------------------------------------
+ * Page-level defaults (web interface guidelines). next-themes already sets
+ * color-scheme on <html>; theme-color lives in app/layout.tsx.
+ * ------------------------------------------------------------------------ */
+@layer base {
+  html {
+    /* Keep focused elements and anchor targets clear of the sticky header. */
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Remove the double-tap-zoom delay on controls; pinch zoom still works. */
+  :where(a, button, input, select, textarea, label, summary, [role='button']) {
+    touch-action: manipulation;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    text-wrap: balance;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Native <select>: explicit colors so Windows dark mode matches the page. */
+  select,
+  select option {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  /* Numbers in tables line up column by column. */
+  :where(table) {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Reduced motion: stop CSS animations/transitions (spinners, tw-animate-css
+   enter/exit, accordions) for people who ask for it. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

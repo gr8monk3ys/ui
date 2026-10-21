@@ -1,7 +1,7 @@
 "use client";
 
 import { BookOpen, Camera, FileText, Inbox } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import dynamic from "next/dynamic";
 
 import { DemoBlock } from "@/components/gallery/demo-block";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -16,12 +16,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart";
 import {
   Empty,
   EmptyDescription,
@@ -49,16 +43,20 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const chartData = [
-  { month: "Jan", views: 186 }, { month: "Feb", views: 305 }, { month: "Mar", views: 237 },
-  { month: "Apr", views: 273 }, { month: "May", views: 209 }, { month: "Jun", views: 214 },
-];
-const chartConfig = { views: { label: "Views", color: "hsl(var(--primary))" } } satisfies ChartConfig;
+// recharts is the heaviest dependency in the gallery; load it on demand
+// (react-best-practices bundle-dynamic-imports). The placeholder keeps the
+// chart's height so nothing shifts when it arrives.
+const ChartDemo = dynamic(() => import("./chart-demo"), {
+  ssr: false,
+  loading: () => <div className="h-56 w-full" aria-hidden="true" />,
+});
+
+const USD = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 
 const INVOICES = [
-  { no: "NO. 001", what: "Warm paper", amount: "$120.00" },
-  { no: "NO. 002", what: "Forest green", amount: "$85.00" },
-  { no: "NO. 003", what: "Hairline rules", amount: "$42.00" },
+  { no: "NO. 001", what: "Warm paper", amount: 120 },
+  { no: "NO. 002", what: "Forest green", amount: 85 },
+  { no: "NO. 003", what: "Hairline rules", amount: 42 },
 ];
 
 export function DataDemos() {
@@ -79,7 +77,7 @@ export function DataDemos() {
               <TableRow key={r.no}>
                 <TableCell className="font-mono text-xs">{r.no}</TableCell>
                 <TableCell>{r.what}</TableCell>
-                <TableCell className="text-right">{r.amount}</TableCell>
+                <TableCell className="text-right">{USD.format(r.amount)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -87,14 +85,7 @@ export function DataDemos() {
       </DemoBlock>
 
       <DemoBlock label="CHART (recharts)" items={["chart"]}>
-        <ChartContainer config={chartConfig} className="h-56 w-full">
-          <BarChart data={chartData}>
-            <CartesianGrid vertical={false} />
-            <XAxis dataKey="month" tickLine={false} axisLine={false} />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <Bar dataKey="views" fill="var(--color-views)" radius={6} />
-          </BarChart>
-        </ChartContainer>
+        <ChartDemo />
       </DemoBlock>
 
       <DemoBlock label="CAROUSEL" items={["carousel"]}>
@@ -125,7 +116,7 @@ export function DataDemos() {
         <Item variant="outline">
           <ItemMedia variant="icon"><FileText /></ItemMedia>
           <ItemContent>
-            <ItemTitle>On warm paper</ItemTitle>
+            <ItemTitle>On Warm Paper</ItemTitle>
             <ItemDescription>An essay about backgrounds that are not white.</ItemDescription>
           </ItemContent>
           <ItemActions><Button variant="outline" size="sm">Read</Button></ItemActions>
@@ -151,7 +142,7 @@ export function DataDemos() {
         <Empty>
           <EmptyHeader>
             <EmptyMedia variant="icon"><Inbox /></EmptyMedia>
-            <EmptyTitle>Nothing filed yet</EmptyTitle>
+            <EmptyTitle>Nothing Filed Yet</EmptyTitle>
             <EmptyDescription>The catalogue drawer is open and waiting.</EmptyDescription>
           </EmptyHeader>
         </Empty>
@@ -160,7 +151,7 @@ export function DataDemos() {
       <DemoBlock label="CARD" items={["card"]}>
         <Card>
           <CardHeader>
-            <CardTitle>Editorial card</CardTitle>
+            <CardTitle>Editorial Card</CardTitle>
             <CardDescription>Hairline border, hover lift, no chrome.</CardDescription>
           </CardHeader>
           <CardContent className="text-body-sm">

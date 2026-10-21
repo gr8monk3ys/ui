@@ -82,10 +82,10 @@ export function OverlaysDemos() {
       <div className="grid gap-8 lg:grid-cols-2">
         <DemoBlock label="DIALOG" items={["dialog"]}>
           <Dialog>
-            <DialogTrigger asChild><Button variant="outline">Open dialog</Button></DialogTrigger>
+            <DialogTrigger asChild><Button variant="outline">Open Dialog</Button></DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Wall label</DialogTitle>
+                <DialogTitle>Wall Label</DialogTitle>
                 <DialogDescription>Frosted paper over the gallery floor.</DialogDescription>
               </DialogHeader>
             </DialogContent>
@@ -94,14 +94,14 @@ export function OverlaysDemos() {
 
         <DemoBlock label="ALERT-DIALOG" items={["alert-dialog"]}>
           <AlertDialog>
-            <AlertDialogTrigger asChild><Button variant="destructive">Delete draft</Button></AlertDialogTrigger>
+            <AlertDialogTrigger asChild><Button variant="destructive">Delete Draft</Button></AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
-                <AlertDialogTitle>Discard this draft?</AlertDialogTitle>
+                <AlertDialogTitle>Discard This Draft?</AlertDialogTitle>
                 <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel>Keep it</AlertDialogCancel>
+                <AlertDialogCancel>Keep It</AlertDialogCancel>
                 <AlertDialogAction>Discard</AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
@@ -110,10 +110,10 @@ export function OverlaysDemos() {
 
         <DemoBlock label="SHEET" items={["sheet"]}>
           <Sheet>
-            <SheetTrigger asChild><Button variant="outline">Open sheet</Button></SheetTrigger>
+            <SheetTrigger asChild><Button variant="outline">Open Sheet</Button></SheetTrigger>
             <SheetContent>
               <SheetHeader>
-                <SheetTitle>Side panel</SheetTitle>
+                <SheetTitle>Side Panel</SheetTitle>
                 <SheetDescription>Slides in from the edge on frosted paper.</SheetDescription>
               </SheetHeader>
             </SheetContent>
@@ -122,10 +122,10 @@ export function OverlaysDemos() {
 
         <DemoBlock label="DRAWER" items={["drawer"]}>
           <Drawer>
-            <DrawerTrigger asChild><Button variant="outline">Open drawer</Button></DrawerTrigger>
+            <DrawerTrigger asChild><Button variant="outline">Open Drawer</Button></DrawerTrigger>
             <DrawerContent>
               <DrawerHeader>
-                <DrawerTitle>Bottom drawer</DrawerTitle>
+                <DrawerTitle>Bottom Drawer</DrawerTitle>
                 <DrawerDescription>For mobile-first flows.</DrawerDescription>
               </DrawerHeader>
             </DrawerContent>
@@ -134,7 +134,7 @@ export function OverlaysDemos() {
 
         <DemoBlock label="POPOVER" items={["popover"]}>
           <Popover>
-            <PopoverTrigger asChild><Button variant="outline">Open popover</Button></PopoverTrigger>
+            <PopoverTrigger asChild><Button variant="outline">Open Popover</Button></PopoverTrigger>
             <PopoverContent className="text-body-sm">Anchored floating panel with a hairline border.</PopoverContent>
           </Popover>
         </DemoBlock>
@@ -191,7 +191,7 @@ export function OverlaysDemos() {
         <DemoBlock label="TOOLTIP" items={["tooltip"]}>
           <TooltipProvider>
             <Tooltip>
-              <TooltipTrigger asChild><Button variant="outline">Hover me</Button></TooltipTrigger>
+              <TooltipTrigger asChild><Button variant="outline">Hover Me</Button></TooltipTrigger>
               <TooltipContent>A small caption beside the work.</TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -199,7 +199,7 @@ export function OverlaysDemos() {
 
         <DemoBlock label="COMMAND" items={["command"]}>
           <Command className="max-w-sm rounded-xl border">
-            <CommandInput placeholder="Type a command…" />
+            <CommandInput name="command" placeholder="Type a command…" />
             <CommandList>
               <CommandEmpty>No results.</CommandEmpty>
               <CommandGroup heading="Suggestions">
@@ -212,7 +212,7 @@ export function OverlaysDemos() {
 
         <DemoBlock label="SONNER (toasts)" items={["sonner"]}>
           <Button variant="outline" onClick={() => toast("Saved to the catalogue.", { description: "NO. 004 — filed under identity." })}>
-            Show toast
+            Show Toast
           </Button>
         </DemoBlock>
       </div>

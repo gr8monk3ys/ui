@@ -71,7 +71,7 @@ function ContactFormDemo() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="Ada Lovelace" {...field} />
+                <Input autoComplete="name" placeholder="Ada Lovelace…" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -91,17 +91,30 @@ export function FormsDemos() {
       <DemoBlock label="INPUT + LABEL" items={["input", "label"]}>
         <div className="grid max-w-sm gap-2">
           <Label htmlFor="email-demo">Email</Label>
-          <Input id="email-demo" placeholder="you@example.com" />
+          <Input
+            id="email-demo"
+            name="email"
+            type="email"
+            autoComplete="email"
+            spellCheck={false}
+            placeholder="you@example.com…"
+          />
         </div>
       </DemoBlock>
 
       <DemoBlock label="TEXTAREA" items={["textarea"]}>
-        <Textarea className="max-w-sm" placeholder="A short note…" />
+        <Textarea
+          className="max-w-sm"
+          name="note"
+          aria-label="Note"
+          autoComplete="off"
+          placeholder="e.g. Ship the release notes…"
+        />
       </DemoBlock>
 
       <DemoBlock label="SELECT" items={["select"]}>
         <Select>
-          <SelectTrigger className="w-48"><SelectValue placeholder="Pick a fruit" /></SelectTrigger>
+          <SelectTrigger className="w-48" aria-label="Fruit"><SelectValue placeholder="e.g. Apple…" /></SelectTrigger>
           <SelectContent>
             {FRUITS.map((f) => <SelectItem key={f} value={f.toLowerCase()}>{f}</SelectItem>)}
           </SelectContent>
@@ -109,14 +122,20 @@ export function FormsDemos() {
       </DemoBlock>
 
       <DemoBlock label="NATIVE-SELECT" items={["native-select"]}>
-        <NativeSelect className="w-48">
+        <NativeSelect className="w-48" name="fruit" aria-label="Fruit">
           {FRUITS.map((f) => <option key={f}>{f}</option>)}
         </NativeSelect>
       </DemoBlock>
 
       <DemoBlock label="COMBOBOX" items={["combobox"]}>
         <Combobox items={FRUITS}>
-          <ComboboxInput placeholder="Search fruit…" className="w-56" />
+          <ComboboxInput
+            name="fruit-search"
+            aria-label="Search fruit"
+            autoComplete="off"
+            placeholder="Search fruit…"
+            className="w-56"
+          />
           <ComboboxContent>
             <ComboboxEmpty>No fruit found.</ComboboxEmpty>
             <ComboboxList>
@@ -128,13 +147,13 @@ export function FormsDemos() {
 
       <DemoBlock label="CHECKBOX + SWITCH" items={["checkbox", "switch"]}>
         <div className="flex items-center gap-8">
-          <label className="flex items-center gap-2 text-sm"><Checkbox defaultChecked /> Subscribed</label>
-          <label className="flex items-center gap-2 text-sm"><Switch defaultChecked /> Dark mode</label>
+          <label className="flex items-center gap-2 text-sm"><Checkbox name="subscribed" defaultChecked /> Subscribed</label>
+          <label className="flex items-center gap-2 text-sm"><Switch name="dark-mode" defaultChecked /> Dark Mode</label>
         </div>
       </DemoBlock>
 
       <DemoBlock label="RADIO-GROUP" items={["radio-group"]}>
-        <RadioGroup defaultValue="essays" className="flex gap-6">
+        <RadioGroup name="topic" aria-label="Topic" defaultValue="essays" className="flex gap-6">
           {["essays", "photos", "code"].map((v) => (
             <label key={v} className="flex items-center gap-2 text-sm capitalize"><RadioGroupItem value={v} /> {v}</label>
           ))}
@@ -142,7 +161,7 @@ export function FormsDemos() {
       </DemoBlock>
 
       <DemoBlock label="SLIDER" items={["slider"]}>
-        <Slider defaultValue={[40]} max={100} step={1} className="max-w-sm" />
+        <Slider name="volume" aria-label="Volume" defaultValue={[40]} max={100} step={1} className="max-w-sm" />
       </DemoBlock>
 
       <DemoBlock label="TOGGLE + TOGGLE-GROUP" items={["toggle", "toggle-group"]}>
@@ -167,12 +186,20 @@ export function FormsDemos() {
       <DemoBlock label="INPUT-GROUP" items={["input-group"]}>
         <InputGroup className="max-w-sm">
           <InputGroupAddon><InputGroupText>https://</InputGroupText></InputGroupAddon>
-          <InputGroupInput placeholder="lscaturchio.xyz" />
+          <InputGroupInput
+            name="website"
+            aria-label="Website"
+            type="url"
+            inputMode="url"
+            autoComplete="url"
+            spellCheck={false}
+            placeholder="lscaturchio.xyz…"
+          />
         </InputGroup>
       </DemoBlock>
 
       <DemoBlock label="INPUT-OTP" items={["input-otp"]}>
-        <InputOTP maxLength={6}>
+        <InputOTP maxLength={6} name="otp" aria-label="One-time code" autoComplete="one-time-code">
           <InputOTPGroup>
             <InputOTPSlot index={0} /><InputOTPSlot index={1} /><InputOTPSlot index={2} />
           </InputOTPGroup>
@@ -186,7 +213,13 @@ export function FormsDemos() {
       <DemoBlock label="FIELD" items={["field"]}>
         <Field className="max-w-sm">
           <FieldLabel htmlFor="handle-demo">Handle</FieldLabel>
-          <Input id="handle-demo" placeholder="@gr8monk3ys" />
+          <Input
+            id="handle-demo"
+            name="handle"
+            autoComplete="username"
+            spellCheck={false}
+            placeholder="@gr8monk3ys…"
+          />
           <FieldDescription>Shown on your public profile.</FieldDescription>
         </Field>
       </DemoBlock>

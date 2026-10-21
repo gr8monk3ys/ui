@@ -69,7 +69,7 @@ export const CATEGORIES: readonly Category[] = [
     slug: "feedback",
     index: "05.5",
     label: "Feedback",
-    description: "Status told in the identity's own status tokens — success, warning, info, destructive.",
+    description: "Status told in the identity’s own status tokens — success, warning, info, destructive.",
     items: ["alert", "progress", "skeleton", "spinner"],
   },
   {

@@ -13,7 +13,7 @@ export default function PatternsPage() {
     <main>
       <Section padding="compact">
         <BreadcrumbNav />
-        <SectionHeader index="04" eyebrow="REGISTRY" title="Patterns & foundations"
+        <SectionHeader as="h1" index="04" eyebrow="REGISTRY" title="Patterns & foundations"
           description="The six items that are not components: the theme itself, the interactive behaviours built on it, and the hook they share." />
 
         <div className="grid gap-10 lg:grid-cols-2">
@@ -33,7 +33,7 @@ export default function PatternsPage() {
             <div className="flex items-center gap-4">
               <ThemeToggle />
               <span className="text-description-sm">
-                The same control that sits in this site&apos;s header.
+                The same control that sits in this site’s header.
               </span>
             </div>
           </DemoBlock>
