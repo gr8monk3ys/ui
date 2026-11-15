@@ -36,8 +36,8 @@ export function FeedbackDemos() {
 
       <DemoBlock label="PROGRESS" items={["progress"]}>
         <div className="grid max-w-sm gap-4">
-          <Progress value={33} />
-          <Progress value={80} />
+          <Progress value={33} aria-label="Upload progress" />
+          <Progress value={80} aria-label="Storage used" />
     </div>
       </DemoBlock>
 

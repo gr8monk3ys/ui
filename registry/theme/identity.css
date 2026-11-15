@@ -503,16 +503,16 @@
     --muted-foreground: 215 10% 42%;
     --accent: 32 50% 92%;
     --accent-foreground: 215 15% 16%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 30 18% 86%;
     --input: 30 18% 86%;
     --ring: var(--primary);
     --radius: 0.75rem;
 
-    --success: 142 76% 36%;
+    --success: 142 70% 27%;
     --success-foreground: 0 0% 100%;
-    --success-muted: 142 76% 36% / 0.1;
+    --success-muted: 142 70% 27% / 0.1;
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 0%;
     --warning-muted: 38 92% 50% / 0.1;
