@@ -543,13 +543,13 @@
     --primary: 152 44% 46%;
     --primary-foreground: 220 15% 8%;
     --secondary: 152 38% 32%;
-    --secondary-foreground: 220 15% 8%;
+    --secondary-foreground: 0 0% 98%;
     --muted: 220 10% 16%;
     --muted-foreground: 220 10% 70%;
     --accent: 210 16% 16%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 72% 64%;
+    --destructive-foreground: 220 15% 8%;
     --border: 220 10% 18%;
     --input: 220 10% 18%;
     --ring: var(--primary);
