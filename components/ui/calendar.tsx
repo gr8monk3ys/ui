@@ -19,6 +19,9 @@ import { Button, buttonVariants } from "@/components/ui/button"
 // server and in every browser, whatever the visitor's OS locale.
 const MONTH_SHORT = new Intl.DateTimeFormat("en-US", { month: "short" })
 const DAY_KEY = new Intl.DateTimeFormat("en-US")
+// "Sunday, November 1, 2026": the default "PPPP" label writes "1st", which
+// drops the visible day number from the button's accessible name.
+const DAY_LABEL = new Intl.DateTimeFormat("en-US", { dateStyle: "full" })
 
 function Calendar({
   className,
@@ -27,6 +30,7 @@ function Calendar({
   captionLayout = "label",
   buttonVariant = "ghost",
   formatters,
+  labels,
   components,
   ...props
 }: React.ComponentProps<typeof DayPicker> & {
@@ -47,6 +51,11 @@ function Calendar({
       formatters={{
         formatMonthDropdown: (date) => MONTH_SHORT.format(date),
         ...formatters,
+      }}
+      labels={{
+        labelDayButton: (date, modifiers) =>
+          `${modifiers.today ? "Today, " : ""}${DAY_LABEL.format(date)}${modifiers.selected ? ", selected" : ""}`,
+        ...labels,
       }}
       classNames={{
         root: cn("w-fit", defaultClassNames.root),
