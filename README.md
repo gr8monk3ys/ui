@@ -10,7 +10,8 @@ item (`registry/theme/identity.css` + `fonts.ts`) decides everything an app
 should not be deciding for itself: warm paper background (`38 25% 97%`)
 with a slate-night dark mode, forest-green primary (`152 52% 20%`),
 Fraunces for display, Instrument Sans for body, IBM Plex Mono for the
-uppercase "wall label" captions, hairline borders instead of shadows, a
+uppercase "wall label" captions, my own handwriting for a signature or a
+pencilled aside, hairline borders instead of shadows, a
 fluid `clamp()` type scale, 150/200/300 ms motion durations, and a fixed
 paper-grain overlay. An app gets exactly two knobs, `--primary` and
 `--radius`; the ring colour and the whole radius scale derive from them.
@@ -39,6 +40,13 @@ Wire it up:
 // app/layout.tsx
 import { fontVariables } from "@/lib/fonts";
 // <html className={fontVariables} suppressHydrationWarning>
+```
+
+The fourth face, my handwriting (the `hand` utility and `--font-hand`), is a
+binary the registry cannot ship. Copy it once:
+
+```bash
+mkdir -p public/fonts && curl -o public/fonts/LorenzoHand-Regular.woff2 https://ui.lscaturchio.xyz/fonts/LorenzoHand-Regular.woff2 -o public/fonts/LorenzoHand-Bold.woff2 https://ui.lscaturchio.xyz/fonts/LorenzoHand-Bold.woff2
 ```
 
 ## The rules

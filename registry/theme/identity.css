@@ -9,6 +9,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* The hand: Lorenzo's own print handwriting. A registry item cannot carry a
+ * binary, so copy the two files from https://ui.lscaturchio.xyz/fonts/ into
+ * the app's public/fonts/. Until they are there, --font-hand falls back to
+ * the display serif. */
+@font-face {
+  font-family: 'Lorenzo Hand';
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/LorenzoHand-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lorenzo Hand';
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/LorenzoHand-Bold.woff2') format('woff2');
+}
+
 @theme {
   --font-display:
     var(--site-font-display), ui-sans-serif, system-ui, sans-serif,
@@ -18,6 +35,7 @@
     'Apple Color Emoji', 'Segoe UI Emoji';
   --font-mono:
     var(--site-font-mono), ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+  --font-hand: 'Lorenzo Hand', var(--site-font-display), ui-serif, serif;
 
   /* NOTE: do not define --spacing-xs/sm/md/lg/xl/2xl/... tokens here. In
    * Tailwind v4 they generate spacing-suffixed utilities (max-w-2xl, w-lg, …)
@@ -103,6 +121,16 @@
   text-transform: uppercase;
   color: hsl(var(--muted-foreground));
   font-feature-settings: 'tnum' 1;
+}
+
+/* The hand signs and annotates: a signature, a greeting, a short pencilled
+ * aside. Never body copy, never a control. Its x-height is 0.35em against
+ * Fraunces' 0.44em, so it is set a step larger than the text it sits in. */
+@utility hand {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.25em;
+  letter-spacing: 0;
 }
 
 /* Full-width architectural divider between gallery sections. */
