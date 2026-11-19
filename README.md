@@ -9,7 +9,7 @@ The registry exists so my apps stop drifting apart visually. The `theme`
 item (`registry/theme/identity.css` + `fonts.ts`) decides everything an app
 should not be deciding for itself: warm paper background (`38 25% 97%`)
 with a slate-night dark mode, forest-green primary (`152 52% 20%`),
-Fraunces for display, Instrument Sans for body, IBM Plex Mono for the
+Lorenzo Hand (my own handwriting) for display, Instrument Sans for body, IBM Plex Mono for the
 uppercase "wall label" captions, hairline borders instead of shadows, a
 fluid `clamp()` type scale, 150/200/300 ms motion durations, and a fixed
 paper-grain overlay. An app gets exactly two knobs, `--primary` and
@@ -39,6 +39,13 @@ Wire it up:
 // app/layout.tsx
 import { fontVariables } from "@/lib/fonts";
 // <html className={fontVariables} suppressHydrationWarning>
+```
+
+The display face is my handwriting, a binary the registry cannot ship. Copy
+it once; until it is there, headings fall back to Fraunces:
+
+```bash
+mkdir -p public/fonts && curl -o public/fonts/LorenzoHand-Bold.woff2 https://ui.lscaturchio.xyz/fonts/LorenzoHand-Bold.woff2
 ```
 
 ## The rules

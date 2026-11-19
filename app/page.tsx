@@ -53,7 +53,7 @@ export default function Home() {
 
       <Section id="typography" topDivider>
         <SectionHeader index="02" eyebrow="TOKENS" title="Typography"
-          description="Fraunces display, Instrument Sans body, IBM Plex Mono wall labels. Fluid clamp() scale." />
+          description="My own handwriting for display, Instrument Sans body, IBM Plex Mono wall labels. Fluid clamp() scale." />
         <div className="space-y-6">
           {TYPE_SCALE.map(({ cls, label }) => (
             <div key={cls}>

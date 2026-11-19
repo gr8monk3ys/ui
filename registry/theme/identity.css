@@ -9,9 +9,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Lorenzo Hand: my own print handwriting, and the display face. A registry
+ * item cannot carry a binary, so copy the file from
+ * https://ui.lscaturchio.xyz/fonts/ into the app's public/fonts/. Until it
+ * is there, headings fall back to Fraunces. size-adjust because its x-height
+ * is 0.39em against Fraunces' 0.44em. */
+@font-face {
+  font-family: 'Lorenzo Hand';
+  font-weight: 700;
+  font-display: swap;
+  size-adjust: 125%;
+  src: url('/fonts/LorenzoHand-Bold.woff2') format('woff2');
+}
+
 @theme {
   --font-display:
-    var(--site-font-display), ui-sans-serif, system-ui, sans-serif,
+    'Lorenzo Hand', var(--site-font-display), ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji';
   --font-body:
     var(--site-font-body), ui-sans-serif, system-ui, sans-serif,
@@ -296,7 +309,7 @@
 
 @utility text-display {
   font-size: clamp(2.4rem, 5.2vw, 4.9rem);
-  line-height: 1.02;
+  line-height: 1.1;
   letter-spacing: -0.035em;
   font-weight: 720;
   font-variant-numeric: oldstyle-nums;
