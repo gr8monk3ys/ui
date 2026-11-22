@@ -1,9 +1,10 @@
 import { describe, expect, test } from "bun:test";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import type { Manifest, RegistryFileJson } from "../scripts/registry-types";
 
 const ROOT = join(import.meta.dir, "..");
-const registry = JSON.parse(readFileSync(join(ROOT, "registry.json"), "utf8"));
+const registry = JSON.parse(readFileSync(join(ROOT, "registry.json"), "utf8")) as RegistryFileJson;
 
 describe("registry.json", () => {
   test("every declared source file exists", () => {
@@ -14,7 +15,7 @@ describe("registry.json", () => {
     }
   });
 
-  const manifest = JSON.parse(readFileSync(join(ROOT, "registry-manifest.json"), "utf8"));
+  const manifest = JSON.parse(readFileSync(join(ROOT, "registry-manifest.json"), "utf8")) as Manifest;
 
   test("registry matches the checked-in manifest exactly", () => {
     const names = registry.items.map((i: { name: string }) => i.name).sort();
@@ -45,6 +46,7 @@ describe("registry.json", () => {
         const src = readFileSync(join(ROOT, file.path), "utf8");
         for (const m of src.matchAll(importRe)) {
           const dep = m[2];
+          if (!dep) continue;
           if (ownFiles.has(dep)) continue;
           expect(
             declared.has(dep),

@@ -6,9 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "bun test",
+    "test": "bun test tests",
     "registry:build": "shadcn build",
-    "smoke": "bun scripts/smoke-registry.ts"
+    "smoke": "bun scripts/smoke-registry.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "depcruise": "depcruise app components hooks lib tests scripts --config",
+    "test:e2e": "playwright test",
+    "check": "bun run lint && bun run typecheck && bun run depcruise && bun run test && bun run registry:build && git diff --exit-code public/r && bun run build",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -40,14 +46,28 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@tailwindcss/postcss": "^4.2.1",
     "@tailwindcss/typography": "^0.5.9",
+    "@total-typescript/ts-reset": "^0.6.1",
     "@types/bun": "^1.2.0",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "dependency-cruiser": "^18.8.0",
+    "eslint": "^10.15.0",
+    "eslint-config-next": "^16.4.6",
+    "lint-staged": "^17.6.2",
     "shadcn": "^3.0.0",
+    "simple-git-hooks": "^2.14.0",
     "tailwindcss": "^4.2.1",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.73.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bunx lint-staged && bun run typecheck"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,mjs}": "eslint --max-warnings=0"
   }
 }
