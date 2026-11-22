@@ -1,10 +1,11 @@
 import { describe, expect, test } from "bun:test";
+import { fromAny } from "@total-typescript/shoehorn";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Manifest, RegistryFileJson } from "../scripts/registry-types";
 
 const ROOT = join(import.meta.dir, "..");
-const registry = JSON.parse(readFileSync(join(ROOT, "registry.json"), "utf8")) as RegistryFileJson;
+const registry = fromAny<RegistryFileJson, unknown>(JSON.parse(readFileSync(join(ROOT, "registry.json"), "utf8")));
 
 describe("registry.json", () => {
   test("every declared source file exists", () => {
@@ -15,7 +16,7 @@ describe("registry.json", () => {
     }
   });
 
-  const manifest = JSON.parse(readFileSync(join(ROOT, "registry-manifest.json"), "utf8")) as Manifest;
+  const manifest = fromAny<Manifest, unknown>(JSON.parse(readFileSync(join(ROOT, "registry-manifest.json"), "utf8")));
 
   test("registry matches the checked-in manifest exactly", () => {
     const names = registry.items.map((i: { name: string }) => i.name).sort();

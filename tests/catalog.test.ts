@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { fromAny } from "@total-typescript/shoehorn";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -6,7 +7,7 @@ import { CATALOG_TOTAL, CATEGORIES, PATTERN_ITEMS, installCommand } from "../com
 import type { RegistryFileJson } from "../scripts/registry-types";
 
 const ROOT = join(import.meta.dir, "..");
-const registry = JSON.parse(readFileSync(join(ROOT, "registry.json"), "utf8")) as RegistryFileJson;
+const registry = fromAny<RegistryFileJson, unknown>(JSON.parse(readFileSync(join(ROOT, "registry.json"), "utf8")));
 const registryNames: string[] = registry.items.map((i: { name: string }) => i.name);
 
 const filed = [...CATEGORIES.flatMap((c) => c.items), ...PATTERN_ITEMS];
