@@ -8,6 +8,7 @@
  * - Writes registry-manifest.json (exact item set) and prints npm deps.
  * Idempotent: re-running overwrites vendored files and regenerated entries.
  */
+import type { RegistryFile, RegistryFileJson, RegistryItem } from "./registry-types";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
@@ -58,7 +59,7 @@ function targetFor(filePath: string, fileType: string): string {
 }
 
 const toImport = CATALOG.filter((n) => !OURS.has(n));
-const fetched = new Map<string, any>();
+const fetched = new Map<string, RegistryItem>();
 /** Index-listed items whose per-style JSON upstream does not publish (their
  * own CLI 404s on these too). Recorded in the manifest, revisit on upstream
  * releases. */
@@ -73,7 +74,7 @@ while (queue.length) {
     continue;
   }
   if (!res.ok) throw new Error(`fetch ${name}: ${res.status}`);
-  const item = await res.json();
+  const item = (await res.json()) as RegistryItem;
   fetched.set(name, item);
   for (const dep of item.registryDependencies ?? []) {
     if (!OURS.has(dep) && dep !== "utils" && !fetched.has(dep)) queue.push(dep);
@@ -82,7 +83,7 @@ while (queue.length) {
 
 const npmDeps = new Set<string>();
 const cssVarsCollected: Record<string, Record<string, Record<string, string>>> = {};
-const generatedItems: any[] = [];
+const generatedItems: RegistryItem[] = [];
 
 /** Packages consumers always have; never auto-added to item dependencies. */
 const AMBIENT_PACKAGES = new Set(["react", "react-dom", "next"]);
@@ -92,14 +93,15 @@ function packageImports(src: string): string[] {
   const out = new Set<string>();
   for (const m of src.matchAll(/from\s+["']([^"'.@/][^"']*|@[\w-]+\/[\w-]+)["']/g)) {
     const spec = m[1];
-    const root = spec.startsWith("@") ? spec.split("/").slice(0, 2).join("/") : spec.split("/")[0];
+    if (!spec) continue;
+    const root = spec.startsWith("@") ? spec.split("/").slice(0, 2).join("/") : spec.split("/")[0] ?? spec;
     if (!AMBIENT_PACKAGES.has(root)) out.add(root);
   }
   return [...out];
 }
 
 for (const [name, item] of [...fetched.entries()].sort()) {
-  const files: any[] = [];
+  const files: RegistryFile[] = [];
   const usedPackages = new Set<string>();
   for (const f of item.files ?? []) {
     const target = targetFor(f.path, f.type);
@@ -111,11 +113,11 @@ for (const [name, item] of [...fetched.entries()].sort()) {
     if (existsSync(abs) && process.env.REFRESH_FILES !== "1") {
       content = readFileSync(abs, "utf8");
     } else {
-      content = rewriteImports(f.content);
+      content = rewriteImports(f.content ?? "");
       writeFileSync(abs, content);
     }
     for (const p of packageImports(content)) usedPackages.add(p);
-    const entry: any = { path: target, type: f.type };
+    const entry: RegistryFile = { path: target, type: f.type };
     if (f.type === "registry:hook" || f.type === "registry:lib") {
       entry.target = target; // explicit target for non-ui files
     }
@@ -155,8 +157,8 @@ for (const [name, item] of [...fetched.entries()].sort()) {
 
 // Merge into registry.json: keep our items, replace all previously generated ones.
 const registryPath = join(ROOT, "registry.json");
-const registry = JSON.parse(readFileSync(registryPath, "utf8"));
-const ourItems = registry.items.filter((i: any) => OURS.has(i.name));
+const registry = JSON.parse(readFileSync(registryPath, "utf8")) as RegistryFileJson;
+const ourItems = registry.items.filter((i) => OURS.has(i.name));
 registry.items = [...ourItems, ...generatedItems];
 writeFileSync(registryPath, JSON.stringify(registry, null, 2) + "\n");
 
@@ -164,7 +166,7 @@ writeFileSync(
   join(ROOT, "registry-manifest.json"),
   JSON.stringify(
     {
-      items: registry.items.map((i: any) => i.name).sort(),
+      items: registry.items.map((i) => i.name).sort(),
       imported: [...fetched.keys()].sort(),
       unavailableUpstream: unavailable.sort(),
     },

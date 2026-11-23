@@ -86,7 +86,12 @@ for them (their own CLI 404s); they'll be added when upstream ships them.
 ```bash
 bun install
 bun run dev            # gallery at localhost:3000
-bun test               # unit + registry validation
+bun run test           # unit + registry validation
+bun run lint           # eslint
+bun run typecheck      # tsc --noEmit
+bun run depcruise      # dependency boundaries and cycles
+bun run test:e2e       # playwright smoke (boots the gallery)
+bun run check          # lint, typecheck, depcruise, tests, registry rebuild, build
 bun run registry:build # rebuild public/r/*.json (commit the output)
 bun run smoke          # end-to-end consumer test
 ```
